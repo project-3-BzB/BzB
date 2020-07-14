@@ -37,3 +37,16 @@ margin-bottom: 35px;
   a {
     font-weight: 600;
   }
+
+  .form-heading {
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    padding-top: 6px;
+    border-radius: 8px;
+    margin-bottom:10px;
+  }
