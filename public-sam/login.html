@@ -9,30 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
   </head>
 
   <body>
     <div class="wrapperYellow">
     <section class="hero is-fullheight">
       <div class="hero-body has-text-centered">
-        <div class="login">
-          <img class="logo" src="img/logo.png" width="100px" />
+        <div class="login animate__animated animate__backInDown">
+          <img class="logo animate__animated animate__bounceInRight animate__delay-1s" src="img/logo.png" width="100px" />
           <h4 class="title is-4">Log In</h4>
           <form>
             <div class="form-heading">Username</div>
             <div class="field">
               <div class="control">
-                <input class="input is-medium is-rounded" type="name" placeholder="Username" autocomplete="username" required />
+                <input class="input is-medium is-rounded" type="name" placeholder="Username" id="username" autocomplete="username" required />
               </div>
             </div>
             <div class="form-heading">Password</div>
             <div class="field">
               <div class="control">
-                <input class="input is-medium is-rounded" type="password" placeholder="**********" autocomplete="current-password" required />
+                <input class="input is-medium is-rounded" type="password" placeholder="**********" id="password" autocomplete="current-password" required />
               </div>
             </div>
 
-            <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
+            <button class="button is-block is-fullwidth is-primary is-medium is-rounded animate__animated animate__rubberBand animate__delay-2s" id=type="submit">
               Login
             </button>
           </form>
