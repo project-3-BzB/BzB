@@ -1,21 +1,10 @@
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
     user: {
-      firstName: {
-        type: String,
-        trim: true,
-        minlenght: 1,
-        required: [true, "First name is required."]
-      },
-      lastName: {
-        type: String,
-        trim: true,
-        required: [true, "Last name is required."]
-      },
       // email validation in mongoose https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
       email: {
         type: String,
@@ -65,6 +54,15 @@ const userSchema = new Schema(
     foldersList: []
   }
 );
+
+//https://dev.to/ganeshmani/node-authentication-using-passport-js-part-1-53k7
+userSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+};
+
+userSchema.methods.validPassword = function(password) {
+  return bcrypt(password, this.password);
+};
 
 const userModel = mongoose.model("userModel", userSchema);
 

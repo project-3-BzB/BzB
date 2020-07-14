@@ -1,6 +1,5 @@
 module.exports = {
   User: require("./userModel"),
-  Character: require("./characterModel"),
   Folder: require("./folderModel"),
   Note: require("./noteModel"),
   Task: require("./taskModel"),
