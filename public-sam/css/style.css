@@ -76,11 +76,4 @@ margin-bottom: 35px;
   }
 
 
-  @keyframes animatedBackground {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: 10000px -10000px;
-    }
-  }
+
