@@ -12,11 +12,13 @@ const LoginForm = () => {
     //Return jsx component
     return (
         <form>
+            <div className='form-heading'>Username</div>
             <div className='field'>
                 <div className='control'>
                     <EmailInput />
                 </div>
             </div>
+            <div className='forn-heading'>Password</div>
             <div className='field'>
                 <div className='control'>
                     <PWInput />
