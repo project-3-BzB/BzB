@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
 
+//https://mherman.org/blog/local-authentication-with-passport-and-express-4/
 passport.use(new LocalStrategy(
   //users sign in with username
   {

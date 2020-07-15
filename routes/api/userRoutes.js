@@ -1,4 +1,5 @@
 const router = require("express").Router();
+let passport = require("../../config/passport");
 const booksController = require("../../controllers/userController");
 
 // "/api/user/signup"
@@ -9,7 +10,7 @@ router
 // "/api/user/login"
 router
   .route("/login")
-  .get(booksController.loginUser);
+  .post(passport.authenticate("local"), booksController.loginUser);
 
 // "api/user/data"
 router

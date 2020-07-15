@@ -1,16 +1,14 @@
 //add other npm modules used here----------------------
-let express = require("express");
-let session = require("express-session");
-let passport = require("passport");
+const express = require("express");
+const session = require("express-session");
+const passport = require("passport");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const routes = require("./routes");
-
-//import database models here--------------------------
-let db = require("./models");
+const db = require("./models");
 
 //renames express function to app
-let app = express();
+const app = express();
 
 //set our port
 let PORT = process.env.PORT || 5000;

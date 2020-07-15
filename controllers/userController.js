@@ -1,5 +1,4 @@
 const db = require("../models");
-let passport = require("../config/passport");
 
 module.exports = {
   createUser: function(req, res) {
@@ -13,7 +12,7 @@ module.exports = {
       )
       .then(function() {
         console.log(req.body)
-        res.redirect(307, "/login");
+        res.redirect(307, "/api/user/login");
       })
       .catch(err => {
         res.status(401).json(err);

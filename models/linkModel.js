@@ -4,22 +4,24 @@ const Schema = mongoose.Schema;
 
 const linkSchema = new Schema(
   {
-    linkTitle: {
+    title: {
       type: String,
       trim: true,
       unique: true,
       minlenght: 1,
       required: [true, "A title is required."]
     },
-    linkCreatedAt: {
+    createdAt: {
       type: Date,
-      required: true
+      required: true,
+      default: new Date()
     },
-    linkUpdatedAt: {
+    updatedAt: {
       type: Date,
-      required: true
+      required: true,
+      default: null
     },
-    linkContent: {
+    content: {
       type: String,
       trim: true,
       minlenght: 1,

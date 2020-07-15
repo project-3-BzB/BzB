@@ -3,7 +3,7 @@ $(document).ready(function() {
   let signUpForm = $("#signup-form");
   let emailInput = $("#newEmail");
   let usernameInput = $("#newUser");
-  let passwordInput = $("newPassword");
+  let passwordInput = $("#newPassword");
 
   signUpForm.on("submit", function(event) {
       event.preventDefault();
@@ -12,6 +12,8 @@ $(document).ready(function() {
           username: usernameInput.val(),
           password: passwordInput.val()
       };
+
+      console.log(userData)
 
       //validates fields are not blank
       if (!userData.email || !userData.username || !userData.password) {
@@ -27,7 +29,7 @@ $(document).ready(function() {
 
   //post to user/signup route and redirect to member page
   function signUpUser(email, username, password) {
-      $.post("api/user/signup", {
+      $.post("/api/user/signup", {
           email: email,
           username: username,
           password: password

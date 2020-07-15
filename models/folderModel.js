@@ -4,25 +4,28 @@ const Schema = mongoose.Schema;
 
 const folderSchema = new Schema(
   {
-    folderName: {
+    name: {
       type: String,
       trim: true,
       unique: true,
       minlenght: 1,
-      required: [true, "Folder name is required."]
+      required: [true, "Folder name is required."],
+      default: "My Folder"
     },
-    folderCreatedAt: {
+    createdAt: {
       type: Date,
-      required: true
+      required: true,
+      default: new Date()
     },
-    folderUpdatedAt: {
+    updatedAt: {
       type: Date,
-      required: true
+      required: true,
+      default: null
     },
-    noteList: [],
-    taskList: [],
-    imageList: [],
-    linkList: []
+    notesList: [],
+    tasksList: [],
+    imagesList: [],
+    linksList: []
   }
 );
 

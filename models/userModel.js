@@ -4,36 +4,34 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    user: {
-      // email validation in mongoose https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
-      email: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        validate: {
-          validator: function(v) {
-            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-          },
-          message: "Please enter a valid email.",
+    // email validation in mongoose https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      unique: true,
+      validate: {
+        validator: function(v) {
+          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
         },
-        required: [true, "Email is required"]
+        message: "Please enter a valid email.",
       },
-      username: {
-        type: String,
-        trim: true,
-        unique: true,
-        minlenght: 1,
-        required: [true, "Unique username is required."]
-      },
-      password: {
-        type: String,
-        trim: true,
-        minlength: [4, "Password must be 4 characters long."],
-        required: [true, "Password is required."]
-      },
+      required: [true, "Email is required"]
     },
-    character:   {
+    username: {
+      type: String,
+      trim: true,
+      unique: true,
+      minlenght: 1,
+      required: [true, "Unique username is required."]
+    },
+    password: {
+      type: String,
+      trim: true,
+      minlength: [4, "Password must be 4 characters long."],
+      required: [true, "Password is required."]
+    },
+    character: {
       characterName: {
         type: String,
         trim: true,
