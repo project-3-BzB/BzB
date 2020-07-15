@@ -10,7 +10,7 @@ import logo from '../../logo.png'
 
 const Login = () => {
     return (
-       <section>
+       <section className='hero is-fullheight'>
            <div className='hero-body has-text-centered'>
                 <div className='login'>
                     <img className='logo' src={logo} width='100px' alt='BzB logo' />
