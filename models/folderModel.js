@@ -22,7 +22,8 @@ const folderSchema = new Schema(
       required: true,
       default: null
     },
-    notesList: [],
+    //15 activities - "refs"
+    notesList: [{ ref: 'noteSchema' }],
     tasksList: [],
     imagesList: [],
     linksList: []

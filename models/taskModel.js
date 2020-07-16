@@ -28,10 +28,12 @@ const taskSchema = new Schema(
       maxlength: 250,
       required: [true, "A task must be entered (max. 250 characters)."]
     },
+    //ISO 8601 & moment.js
     dueDate: {
       type: Date,
       required: true
     },
+    //unique method
     isComplete: {
       type: Boolean,
       required: true

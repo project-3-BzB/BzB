@@ -1,6 +1,7 @@
 const router = require("express").Router();
-let passport = require("../../config/passport");
+const passport = require("../../config/passport");
 const booksController = require("../../controllers/userController");
+const authenticateUser = require("../../config/middleware/authenticateLogin");
 
 // "/api/user/signup"
 router
@@ -15,5 +16,5 @@ router
 // "api/user/data"
 router
   .route("/data")
-  .get(booksController.getUser);
+  .get(authenticateUser, booksController.getUser);
 module.exports = router;

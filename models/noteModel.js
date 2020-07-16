@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const noteSchema = new Schema(
   {
-    itle: {
+    title: {
       type: String,
       trim: true,
       unique: true,

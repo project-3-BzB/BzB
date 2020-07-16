@@ -3,8 +3,8 @@ module.exports = function (req, res, next) {
   //for successful login
   if (req.user) {
     return next();
+  } else {
+  //redirects user to login page
+  return res.status(401).send("Login failed!");
   }
-
-  //for failed login
-  return res.redirect("/");
 };
