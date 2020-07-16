@@ -1,12 +1,13 @@
 import React from 'react'
+import { Input } from '../style/Login'
 
 const FormInput = ({ type, placeholder, autocomplete }) => {
     return (
-        <input
+        <Input
             className='input is-medium is-rounded'
             type={type}
             placeholder={placeholder}
-            autocomplete={autocomplete}
+            autoComplete={autocomplete}
             required
         />
     )

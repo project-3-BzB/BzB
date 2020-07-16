@@ -2,9 +2,6 @@ import React from 'react'
 
 import SignupBtn from './SignupBtn'
 import FormInput from '../FormInput'
-// import EmailInput from '../EmailInput'
-// import PWInput from '../PWInput'
-// import UsernameInput from '../UsernameInput'
 
 
 const SignupForm = () => {
@@ -19,7 +16,7 @@ const SignupForm = () => {
                     <FormInput
                         type='name'
                         placeholder='Your Username'
-                        autocomplete='name'
+                        autoComplete='name'
                     />
                 </div>
             </div>
@@ -29,7 +26,7 @@ const SignupForm = () => {
                     <FormInput
                         type='email'
                         placeholder='hello@example.com'
-                        autocomplete='username'
+                        autoComplete='username'
                     />
                 </div>
             </div>
@@ -39,7 +36,7 @@ const SignupForm = () => {
                     <FormInput 
                         type='password' 
                         placeholder='**********' 
-                        autocomplete='current-password'
+                        autoComplete='current-password'
                     />
                 </div>
             </div>

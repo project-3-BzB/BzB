@@ -3,8 +3,8 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Login from './pages/login/Login'
-import Signup from './pages/signup/Signup'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 function App() {
   return (

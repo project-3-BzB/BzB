@@ -6,7 +6,7 @@ import axios from 'axios'
 export default {
     //Get all saved docs
     get: function() {
-        axios.get(`/api/docs`)
+        axios.get(`/api/docs/`)
     },
     //Save new doc
     save: function(data) {
@@ -19,8 +19,10 @@ export default {
     //Delete a doc
     delete: function(id) {
         axios.delete()
-    }
+    },
 
     //USER ROUTES
-
+    signup: function(data) {
+        axios.post(`/api/user/signup${data}`)
+    }
 }
