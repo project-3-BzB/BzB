@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import 'bulma/css/bulma.css'
+import 'animate.css/animate.min.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
