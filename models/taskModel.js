@@ -4,33 +4,37 @@ const Schema = mongoose.Schema;
 
 const taskSchema = new Schema(
   {
-    taskTitle: {
+    title: {
       type: String,
       trim: true,
       unique: true,
       minlenght: 1,
       required: [true, "A title is required."]
     },
-    taskCreatedAt: {
+    createdAt: {
       type: Date,
-      required: true
+      required: true,
+      default: new Date()
     },
-    taskUpdatedAt: {
+    updatedAt: {
       type: Date,
-      required: true
+      required: true,
+      default: null
     },
-    taskContent: {
+    content: {
       type: String,
       trim: true,
       minlenght: 1,
       maxlength: 250,
       required: [true, "A task must be entered (max. 250 characters)."]
     },
-    taskDue: {
+    //ISO 8601 & moment.js
+    dueDate: {
       type: Date,
       required: true
     },
-    taskCompleted: {
+    //unique method
+    isComplete: {
       type: Boolean,
       required: true
     }

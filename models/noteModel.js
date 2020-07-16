@@ -4,23 +4,24 @@ const Schema = mongoose.Schema;
 
 const noteSchema = new Schema(
   {
-    noteTitle: {
+    title: {
       type: String,
       trim: true,
       unique: true,
       minlenght: 1,
       required: [true, "A title is required."]
     },
-    noteCreatedAt: {
+    createdAt: {
       type: Date,
       required: true,
-      // default: new Date()
+      default: new Date()
     },
-    noteUpdatedAt: {
+    updatedAt: {
       type: Date,
-      required: true
+      required: true,
+      default: null
     },
-    noteContent: {
+    content: {
       type: String,
       trim: true,
       minlenght: 1,

@@ -4,23 +4,25 @@ const Schema = mongoose.Schema;
 
 const imageSchema = new Schema(
   {
-    imageTitle: {
+    title: {
       type: String,
       trim: true,
       unique: true,
       minlenght: 1,
       required: [true, "A title is required."]
     },
-    imageCreatedAt: {
+    createdAt: {
       type: Date,
-      required: true
+      required: true,
+      default: new Date()
     },
-    imageUpdatedAt: {
+    updatedAt: {
       type: Date,
-      required: true
+      required: true,
+      default: null
     },
     //content will be image url
-    imageContent: {
+    content: {
       type: String,
       trim: true,
       minlenght: 1,
