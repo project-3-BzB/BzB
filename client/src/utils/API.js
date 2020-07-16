@@ -20,4 +20,7 @@ export default {
     delete: function(id) {
         axios.delete()
     }
+
+    //USER ROUTES
+
 }

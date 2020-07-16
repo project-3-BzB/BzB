@@ -1,8 +1,9 @@
 import React from 'react'
 
 import LoginBtn from './LoginBtn'
-import EmailInput from './EmailInput'
-import PWInput from './PWInput'
+import FormInput from '../FormInput'
+// import EmailInput from '../EmailInput'
+// import PWInput from '../PWInput'
 
 //LOGIN PAGE MOCKUP
 
@@ -15,13 +16,13 @@ const LoginForm = () => {
             <div className='form-heading'>Username</div>
             <div className='field'>
                 <div className='control'>
-                    <EmailInput />
+                    <FormInput type='name' placeholder='Your Username' autocomplete='name' />
                 </div>
             </div>
-            <div className='forn-heading'>Password</div>
+            <div className='form-heading'>Password</div>
             <div className='field'>
                 <div className='control'>
-                    <PWInput />
+                    <FormInput type='password' placeholder='**********' autocomplete='current-password'/>
                 </div>
             </div>
             <LoginBtn />

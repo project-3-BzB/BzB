@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginNav = () => {
 
@@ -11,7 +12,7 @@ const LoginNav = () => {
             </div>
             <div className='level-item has-text-centered'>
                 <div>
-                    <a href='google.com'>Create an Acount</a>
+                    <Link to='/signup'>Create an Acount</Link>
                 </div>
             </div>
         </nav>

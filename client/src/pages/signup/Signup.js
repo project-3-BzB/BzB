@@ -1,12 +1,10 @@
 import React from 'react'
 
-import './style.css'
-import LoginForm from '../../components/login/LoginForm'
-import LoginNav from '../../components/login/LoginNav'
+// import './style.css'
+import SignupForm from '../../components/signup/SignupForm'
+import SignupNav from '../../components/signup/SignupNav'
 import Logo from '../../components/Logo'
 
-
-//LOGIN PAGE MOCKUP
 
 const Login = () => {
 
@@ -14,11 +12,11 @@ const Login = () => {
         <div className='WrapperYellow'>
             <section className='hero is-fullheight'>
            <div className='hero-body has-text-centered'>
-                <div className='login animate__animated animate__backInDown'>
-                    <h4 className='title is-4'>Log In</h4>
+                <div className='login animate__animated animate__lightSpeedInRight'>
+                    <h4 className='title is-4'>Sign Up</h4>
                     <Logo />
-                    <LoginForm />
-                    <LoginNav />
+                    <SignupForm />
+                    <SignupNav />
                 </div>
            </div>
        </section>
