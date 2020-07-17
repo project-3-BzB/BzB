@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import LoginBtn from './LoginBtn'
 import FormInput from '../FormInput'
+import { UserContext } from '../../context/UserContext'
 
 
 const LoginForm = () => {
+    const [user, setUser] = useContext(UserContext)
     //Form logic
+    const handleChange = e => {
+        e.preventDefault()
+        const { name, value } = e.target
+        setUser({...user, [name]: value.trim()})
+    }
 
     //Return jsx component
     return (
@@ -13,19 +20,23 @@ const LoginForm = () => {
             <div className='form-heading'>Username</div>
             <div className='field'>
                 <div className='control'>
-                    <FormInput 
+                    <FormInput
+                    name='username' 
                     type='name' 
                     placeholder='Your Username' 
-                    autoComplete='name' />
+                    autoComplete='name'
+                    onChange={handleChange} />
                 </div>
             </div>
             <div className='form-heading'>Password</div>
             <div className='field'>
                 <div className='control'>
-                    <FormInput 
+                    <FormInput
+                    name='password'
                     type='password' 
                     placeholder='**********' 
-                    autoComplete='current-password'/>
+                    autoComplete='current-password'
+                    onChange={handleChange} />
                 </div>
             </div>
             <LoginBtn />

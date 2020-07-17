@@ -1,26 +1,44 @@
-import React from 'react';
-// import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch } from "react-router-dom"
+import { GuardProvider, GuardedRoute } from 'react-router-guards'
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { getIsLoggedIn } from './utils/Auth'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Loading from './pages/Loading'
+import NotFound from './pages/NotFound'
 
 function App() {
+
+  const requireLogin = (to, from, next) => {
+    if (to.meta.auth) {
+      if (getIsLoggedIn()) {
+        next()
+      }
+      next.redirect('/login')
+    } else {
+      next()
+    }
+  }
+
+// guards={[requireLogin]} loading={Loading} error={NotFound}
+
   return (
     <Router>
+      <GuardProvider guards={[requireLogin]}>
           <div className="App">
             <Switch>
-              <Route exact path={['/', '/login']}>
+              <GuardedRoute exact path={['/', '/login']}>
                 <Login />
-              </Route>
-              <Route exact path={['/signup']}>
+              </GuardedRoute>
+              <GuardedRoute exact path={['/signup']}>
                 <Signup />
-              </Route>
+              </GuardedRoute>
             </Switch>
           </div>
+      </GuardProvider>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
