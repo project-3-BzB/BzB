@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
 
 const SignupBtn = () => {
-
+    const [ user ] = useContext(UserContext)
     //Btn logic
-    function handleSubmit() {
+    const handleSubmit = e => {
+        e.preventDefault()
 
     }
     

@@ -1,13 +1,10 @@
 import React from 'react'
+import { Input } from '../style/Login'
 
-const FormInput = ({ type, placeholder, autocomplete }) => {
+const FormInput = (props) => {
     return (
-        <input
-            className='input is-medium is-rounded'
-            type={type}
-            placeholder={placeholder}
-            autocomplete={autocomplete}
-            required
+        <Input
+            className='input is-medium is-rounded' {...props}
         />
     )
 }
