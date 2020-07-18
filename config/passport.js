@@ -1,6 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
+const validatePassword = db.User.schema.statics.validatePassword;
 
 //https://mherman.org/blog/local-authentication-with-passport-and-express-4/
 passport.use(new LocalStrategy(
@@ -10,26 +11,24 @@ passport.use(new LocalStrategy(
     passwordField: "password"
   },
   function(username, password, done) {
+    // console.log(username, password, done)
     //finds user through their username in database
-    db.User.findOne({
-      where: {
-        username: username,
-      }
-    }).then(function(dbUser) {
+    db.User.findOne({username: username})
+      .then(function(user) {
       //username validation
-      if (!dbUser) {
+      if (!user) {
         return done(null, false, {
           message: "Incorrect username."
         });
       }
-      //password validation
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
-      //successful login
-      return done(null, dbUser);
+      // console.log(password, user.password)
+      validatePassword(password, user.password, (err, isValid) => {
+        if (!isValid) {
+          console.log(err)
+        };
+        return user
+      });
+      return done(null, user.password);
     });
   }
 ));
