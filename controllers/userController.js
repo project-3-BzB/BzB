@@ -17,7 +17,7 @@ module.exports = {
   },
   loginUser: function(req, res) {
     db.User
-      .find({password: req.body.password})
+      .find({username: req.body.username})
       .then(user => {
         console.log(user)
         res.json(user)
