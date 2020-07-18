@@ -1,28 +1,7 @@
 import axios from 'axios'
 
-// Pseudocoding out some basic routes
 
+const API = axios.create({
+})
 
-export default {
-    //Get all saved docs
-    get: function() {
-        axios.get(`/api/docs/`)
-    },
-    //Save new doc
-    save: function(data) {
-        axios.post(`/api/`)
-    },
-    //Update a doc
-    update: function(data) {
-        axios.put()
-    },
-    //Delete a doc
-    delete: function(id) {
-        axios.delete()
-    },
-
-    //USER ROUTES
-    signup: function(data) {
-        axios.post(`/api/user/signup${data}`)
-    }
-}
+export default API
