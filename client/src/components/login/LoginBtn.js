@@ -2,16 +2,17 @@ import React, { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import API from '../../utils/API'
 import { setIsLoggedIn } from '../../utils/Auth'
+import { useHistory } from 'react-router-dom'
 
 
 const LoginBtn = () => {
     const [ user ] = useContext(UserContext)
-
+    const history = useHistory()
     //Btn logic
-    const login = async user => {
+    const login = async (user) => {
         try {
             
-            // const res = await API.login({user})
+            // const res = await API.post('api/user/login', {username: user.username, password: user.password})
             // setIsLoggedIn(res.token)
 
         } catch (err) {
@@ -21,7 +22,7 @@ const LoginBtn = () => {
     const handleSubmit = e => {
         e.preventDefault()
         // login(user) 
-        setIsLoggedIn('test-token')
+        history.push('/home')
     }
     
     
