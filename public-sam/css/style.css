@@ -101,6 +101,22 @@ margin-bottom: 35px;
   margin-left: 20px;
 }
 
+.entryTask {
+  background-color: #58afff;
+}
+
+.entryJournal {
+  background: #801ae5;
+}
+
+.entryLink {
+  background: #ff4c50;
+}
+
+.entryPhoto {
+  background: #ff7e4c;
+}
+
 
 /* ENTRYBOX CLASSES : COLORS */
 .entrybox-task {
