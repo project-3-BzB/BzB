@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 // import "./style.css";
-import Tile from '../Tile';
-import {TileContext} from '../../utils/TileContext';
+import Tile from './Tile';
+import {TileContext} from '../utils/TileContext';
 
-function Tiles() {
+function TaskList() {
   const [tiles, setTiles] = useContext(TileContext);
   return (
     <div>
@@ -21,4 +21,4 @@ function Tiles() {
   );
 }
 
-export default Tiles;
+export default TaskList;

@@ -10,16 +10,6 @@
   animation: animatedBackground 500s linear infinite;
 }
   
-.hero-body {
-  justify-content: center;
-}
-  
-.login {
-  border-radius: 25px;
-  padding: 1.5rem;
-  background-color: azure;
-}
-
 @keyframes animatedBackground {
   from {
     background-position: 0 0;

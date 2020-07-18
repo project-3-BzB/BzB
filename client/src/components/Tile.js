@@ -1,11 +1,20 @@
 import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 
-// https://www.youtube.com/watch?v=taMJct5oeoI
-const Tile = ({ image, alt }) => {
+const Tile = ({ image, alt, page }) => {
   
-  return (
+  const location = useLocation();
+
+    function List() {
+        window.location.assign(page)
+      return
+    }
+
+    return (
     <div className="column is-half-mobile">
-      <img src={image} alt={alt}/>
+      <Link onClick={List}>
+        <img className="animate__animated animate__rotateIn" src={image} alt={alt}/>
+      </Link>
     </div>
   )
 }

@@ -1,30 +1,62 @@
-import React from 'react';
-// import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch } from "react-router-dom"
+import { GuardProvider, GuardedRoute } from 'react-router-guards'
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-// import Login from './pages/login/Login'
-// import Signup from './pages/signup/Signup'
+import { getIsLoggedIn } from './utils/Auth'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+// import Loading from './pages/Loading'
+// import NotFound from './pages/NotFound'
 import Home from './pages/Home'
+import Tasks from './pages/Tasks'
 
 function App() {
+
+  const requireLogin = (to, from, next) => {
+    if (to.meta.auth) {
+      if (getIsLoggedIn()) {
+        next()
+      }
+      next.redirect('/login')
+    } else {
+      next()
+    }
+  }
+
+// guards={[requireLogin]} loading={Loading} error={NotFound}
+
   return (
     <Router>
+      <GuardProvider guards={[requireLogin]}>
           <div className="App">
             <Switch>
-              {/* <Route exact path={['/', '/login']}>
+              <GuardedRoute exact path={['/', '/login']}>
                 <Login />
-              </Route>
-              <Route exact path={['/signup']}>
+              </GuardedRoute>
+              <GuardedRoute exact path={['/signup']}>
                 <Signup />
-              </Route> */}
-              <Route exact path={['/Home']}>
+              </GuardedRoute>
+              {/* <GuardedRoute exact path={['/home']} meta={{auth: true}}> */}
+              <GuardedRoute exact path={['/home']} >
                 <Home />
-              </Route>
+              </GuardedRoute>
+              <GuardedRoute exact path={['/Tasks']} >
+                <Tasks />
+              </GuardedRoute>
+              {/* <GuardedRoute exact path={['/Journals']} >
+                <Journals />
+              </GuardedRoute>
+              <GuardedRoute exact path={['/Links']} >
+                <Links />
+              </GuardedRoute>
+              <GuardedRoute exact path={['/Photos']} >
+                <Photos />
+              </GuardedRoute> */}
             </Switch>
           </div>
+      </GuardProvider>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
