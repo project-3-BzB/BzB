@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Loading from './pages/Loading'
 import NotFound from './pages/NotFound'
+import Home from './pages/Home'
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
               </GuardedRoute>
               <GuardedRoute exact path={['/signup']}>
                 <Signup />
+              </GuardedRoute>
+              <GuardedRoute exact path={['/home']} meta={{auth: true}}>
+                <Home />
               </GuardedRoute>
             </Switch>
           </div>
