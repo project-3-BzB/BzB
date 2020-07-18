@@ -1,0 +1,33 @@
+.wrapperGrey {
+  background: url(../../img/bg_grey.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: animatedBackground 500s linear infinite;
+}
+  
+.hero-body {
+  justify-content: center;
+}
+  
+.login {
+  border-radius: 25px;
+  padding: 1.5rem;
+  background-color: azure;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px -10000px;
+  }
+}
+  
+  
+ 
