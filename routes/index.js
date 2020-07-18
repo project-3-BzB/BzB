@@ -6,13 +6,13 @@ const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 
 // HTML Routes (temporary)
-router.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname,"../public-sam/login.html"));
-});
+// router.get("/", function(req, res) {
+//   res.sendFile(path.join(__dirname,"../public-sam/login.html"));
+// });
 
-router.get("/signup", function(req, res) {
-  res.sendFile(path.join(__dirname,"../public-sam/signup.html"));
-});
+// router.get("/signup", function(req, res) {
+//   res.sendFile(path.join(__dirname,"../public-sam/signup.html"));
+// });
 
 // If no API routes are hit, send the React app
 // router.use(function(req, res) {

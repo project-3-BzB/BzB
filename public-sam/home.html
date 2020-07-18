@@ -4,29 +4,42 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BzB : New User Sign Up</title>
+    <title>BzB : Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
   </head>
 
   <body>
     <div class="wrapperGrey">
-    <section class="hero is-fullheight">
-      <div class="hero-body has-text-centered">
-        <div class="login">
-          <h4 class="title is-4">Home</h4>
-          <div class="columns is-desktop is-mobile">
-            <div class="column is-half-mobile"><img src="img/button_tasks.png"></div>
-            <div class="column is-half-mobile"><img src="img/button_journals.png"></div>
-          </div>
-          <div class="columns is-desktop is-mobile">
-            <div class="column is-half-mobile"><img src="img/button_links.png"></div>
-            <div class="column is-half-mobile"><img src="img/button_photos.png"></div>
-          </div>
+      <div class="menuTop">
+        <div class="nes-field">
+          <label for="name_field">Your name</label>
+          <input type="text" id="name_field" class="nes-input" value="Project Name">
+        </div>
+        <section>
+            </form>
+          </dialog>
+        </section>
+       </div>
+      <div class="menuBottom">
+        <div class="columns is-desktop is-mobile">
+          <div class="column hexagon"><img src="img/button_tasks.png" width="100px"></div>
+          <div class="column hexagon"><img src="img/button_journals.png" width="100px"></div>
+          <div class="column hexagon"><img src="img/button_links.png" width="100px"></div>
+          <div class="column hexagon"><img src="img/button_photos.png" width="100px"></div>
         </div>
       </div>
-    </section>
+
+      <div class="homeContent">
+       
+        <div class="entrybox-task"></div>
+        <div class="entrybox-journal"></div>
+        <div class="entrybox-link"></div>
+        <div class="entrybox-photo"></div>
+      </div>
   </div>
   </body>
 </html>
