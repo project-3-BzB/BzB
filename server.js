@@ -26,6 +26,9 @@ app.use(cors({
     optionsSuccessStatus: 200,
   }))
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
 //sync to mongoDB using mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bzb", {
     useNewUrlParser: true,
