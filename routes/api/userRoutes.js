@@ -1,20 +1,22 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
-const booksController = require("../../controllers/userController");
+const userController = require("../../controllers/userController");
 const authenticateUser = require("../../config/middleware/authenticateLogin");
 
 // "/api/user/signup"
 router
   .route("/signup")
-  .post(booksController.createUser);
+  .post(userController.createUser);
 
 // "/api/user/login"
 router
   .route("/login")
-  .post(passport.authenticate("local"), booksController.loginUser);
+  .post(passport.authenticate("local"), userController.loginUser)
+  .get(userController.populateFolders);
 
 // "api/user/data"
 router
   .route("/data")
-  .get(authenticateUser, booksController.getUser);
+  .get(authenticateUser, userController.getUser);
+
 module.exports = router;
