@@ -3,8 +3,7 @@
     font-size: 12px;
   }
 
-
-
+  /* LOGO CUSTOMIZATIONS */
 .logo {
 margin: 25px;
 margin-bottom: 35px;
@@ -20,6 +19,7 @@ margin-bottom: 35px;
     
   }
 
+  /* BACKGROUND COLOR: YELLOW */
   .wrapperYellow {
     background: url(../img/bg_yellow.png);
     width: 100%;
@@ -31,6 +31,7 @@ margin-bottom: 35px;
     background-position: 0 0;
   }
 
+  /* BACKGROUND COLOR: GREY */
   .wrapperGrey {
     background: url(../img/bg_grey.png);
     background-repeat: repeat;
@@ -38,7 +39,17 @@ margin-bottom: 35px;
     display: flex;
     justify-content: center;
   }
+  /* BACKGROUND COLOR: BLUE */
+  .wrapperBlue {
+    background: url(../img/bg_blue.png);
+    background-repeat: repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
 
+    /* Home page content*/
   .containerHome {
     width: 80%;
     background-color: transparent;
@@ -47,6 +58,8 @@ margin-bottom: 35px;
     padding: 20px;
   }
   
+
+    /* Navigation Menu : Bottom */
 .menuBottom {
   position: fixed;
   bottom: 0;
@@ -56,17 +69,11 @@ margin-bottom: 35px;
   background-color: #1a1a1ad2;
   border-top-left-radius:20px ;
   border-top-right-radius:20px ;
-  z-index: 1;
+  z-index: 100;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-.center {
-  width: 800px;
-}
 
+  /* Fixed Menu at the Top */
 .menuTop {
   position: fixed;
   top: 0;
@@ -76,9 +83,10 @@ margin-bottom: 35px;
   background-color: #1a1a1ad2;
   border-bottom-left-radius:20px ;
   border-bottom-right-radius:20px ;
-  z-index: 1;
+  z-index: 100;
 }
 
+/* CONTENT CONTAINER HOME PAGE */
 .homeContent {
   display: block;
   width: 80%;
@@ -88,27 +96,14 @@ margin-bottom: 35px;
   height: 800px;
 }
 
-.homeFeed {
-  background-color: #D9DDE6;
-  display: block;
-  width: 50%;
-  margin-right: 25%;
-  border-radius: 25px;
+/* TEXT FORMATTING FOR ENTRIES */
+.entryTitle {
+  font-size: 24px;
+  margin-left: 20px;
 }
 
-.hexagon img:hover {
-  width: 120px;
-}
 
-.folderName {
-  display: block;
-  background-color: white;
-  padding: 8px;
-  text-align: center;
-  font-size: 20px;
-  width: 70%;
-}
-
+/* ENTRYBOX CLASSES : COLORS */
 .entrybox-task {
   display: block;
   width: 80%;
@@ -153,11 +148,8 @@ margin-bottom: 35px;
   margin-bottom: 10px;
 }
 
+/* LOGIN FORMATTING */
 
-  .hero-body {
-    justify-content: center;
-  }
-  
   .login {
     border-radius: 25px;
     padding: 1.5rem;
@@ -185,5 +177,168 @@ margin-bottom: 35px;
     margin-bottom:10px;
   }
 
+/* hexagon grid */
 
+*{
+  box-sizing:border-box;
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.hexagons {
+  width:1100px;
+  letter-spacing:0;
+  font-size:0;
+  margin: 0 auto;
+}
+
+.hexagon {
+  position: relative;
+  width: 226px; 
+  height: 130.48px;
+  margin: 65.24px 21.5px;
+  background-image: url(http://csshexagon.com/img/meow.jpg);
+  background-size: auto 258.6529px;
+  background-position: center;
+  border-left: solid 1px #333333;
+  border-right: solid 1px #333333;
+  display:inline-block;
+}
+
+.hexagon:hover{
+  
+}
+
+.hexTop,
+.hexBottom {
+  position: absolute;
+  z-index: 1;
+  width: 159.81px;
+  height: 159.81px;
+  overflow: hidden;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background: inherit;
+  left: 32.10px;
+  -webkit-backface-visibility: hidden
+}
+
+/*counter transform the bg image on the caps*/
+.hexTop:after,
+.hexBottom:after {
+  content: "";
+  position: absolute;
+  width: 224.0000px;
+  height: 129.32646029847618px;
+  -webkit-transform:  rotate(45deg) scaleY(1.7321) translateY(-64.6632px);
+  -ms-transform:      rotate(45deg) scaleY(1.7321) translateY(-64.6632px);
+  transform:          rotate(45deg) scaleY(1.7321) translateY(-64.6632px);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: inherit;
+}
+
+.hexTop {
+  top: -79.9031px;
+  border-top: solid 1.4142px #333333;
+  border-right: solid 1.4142px #333333;
+}
+
+.hexTop:after {
+  background-position: center top;
+}
+
+.hexBottom {
+  bottom: -79.9031px;
+  border-bottom: solid 1.4142px #333333;
+  border-left: solid 1.4142px #333333;
+}
+
+.hexBottom:after {
+  background-position: center bottom;
+}
+
+.hexagon:after {
+  content: "";
+  position: absolute;
+  top: 0.5774px;
+  left: 0;
+  width: 224.0000px;
+  height: 129.3265px;
+  z-index: 2;
+  background: inherit;
+}
+
+.hexagon:nth-child(7n-2) {
+	margin-left: 156px;
+}
+
+.hexagon:nth-child(n+5) {
+	margin-top: 29px;
+}
+
+@media (max-width: 1100px) {
+	.hexagon:nth-child(5n-1) {
+    margin-left: 156px;
+  }
+
+  .hexagon:nth-child(n+4) {
+    margin-top: 0;
+  }
+
+  .hexagon:nth-child(7n-2) {
+    margin-left: 21px;
+  }
+
+  .hexagon:nth-child(n+5) {
+    margin-top: 0;
+  }
+
+  .hexagons {
+    width: 820px;
+  }
+
+}
+
+@media (max-width: 640px) {
+	.hexagons {
+    width: 405px;
+  }
+
+  .hexagon:nth-child(5n-1) {
+    margin-left: 0px;
+  }
+
+  .hexagon:nth-child(3n) {
+    margin-left: 102px;
+  }
+
+  .hexagon:nth-child(n+3) {
+    margin-top: -56px;
+  }
+
+}
+
+@media (max-width: 450px) {
+	.hexagons {
+    width: 300px;
+  }
+
+  .hexagon:nth-child(3n) {
+    margin-left: 0px;
+  }
+
+  .hexagon:nth-child(2n) {
+    margin-left: 102px;
+  }
+
+  .hexagon:nth-child(n+2) {
+    margin-top: -56px;
+  }
+
+}
 
