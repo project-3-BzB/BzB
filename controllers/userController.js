@@ -1,25 +1,30 @@
 const db = require("../models");
+const passport = require("passport");
 
 module.exports = {
   createUser: function(req, res) {
     db.User
-      .create(
-        {
-          email: req.body.email,
-          username: req.body.username,
-          password: req.body.password
-        }
-      )
-      .then(function() {
-        console.log(req.body)
-        res.redirect(307, "/api/user/login");
+      .create(req.body)
+      // .then(function() {
+      //   res.redirect(307, "/api/user/login");
+      // })
+      .then(newUser => {
+        res.json(newUser)
       })
       .catch(err => {
         res.status(401).json(err);
       });
   },
   loginUser: function(req, res) {
-    req.json(req.user);
+    db.User
+      .find({username: req.body.username})
+      .then(user => {
+        console.log(user)
+        res.json(user)
+      })
+      .catch(err => {
+        res.status(401).json(err);
+      });
   },
   getUser: function(req, res) {
     if (!req.user) {
@@ -28,8 +33,20 @@ module.exports = {
       res.json({
         email: req.user.email,
         username: req.user.username,
-        id: req.user.id
+        id: req.user._id,
+        folders: req.user.foldersList
       });
     };
+  },
+  populateFolders: function(req, res) {
+    db.User
+    .find({username: req.body.username})
+    .populate("foldersList")
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res.json(err);
+    });
   }
 };

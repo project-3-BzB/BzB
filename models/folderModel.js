@@ -17,16 +17,35 @@ const folderSchema = new Schema(
       required: true,
       default: new Date()
     },
-    updatedAt: {
-      type: Date,
-      required: true,
-      default: null
-    },
-    //15 activities - "refs"
-    notesList: [{ ref: 'noteSchema' }],
-    tasksList: [],
-    imagesList: [],
-    linksList: []
+    // updatedAt: {
+    //   type: Date,
+    //   required: false,
+    //   default: null
+    // },
+    notesList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "noteModel"
+      }
+    ],
+    tasksList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "taskModel"
+      }
+    ],
+    imagesList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "imageModel"
+      }
+    ],
+    linksList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "linkModel"
+      }
+    ]
   }
 );
 
