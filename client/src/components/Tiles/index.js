@@ -6,18 +6,16 @@ import {TileContext} from '../../utils/TileContext';
 function Tiles() {
   const [tiles, setTiles] = useContext(TileContext);
   return (
-    <div>
-      <section class="columns is-desktop is-mobile">
+      <div className="columns is-desktop is-mobile">
         {tiles.map(tile => (
         <Tile 
           image={tile.image}
           alt={tile.alt}
           page={tile.page}
+          color={tile.color}
           key={tile.id}/>
         ))}
-      </section>
-    </div>
-
+      </div>
   );
 }
 

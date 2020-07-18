@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
+import { ContainerTile, Overlay, Text } from '../style/Home'
 
-const Tile = ({ image, alt, page }) => {
+const Tile = ({ image, alt, page, color }) => {
   
   const location = useLocation();
 
@@ -11,11 +12,16 @@ const Tile = ({ image, alt, page }) => {
     }
 
     return (
-    <div className="column is-half-mobile">
-      <Link onClick={List}>
-        <img className="animate__animated animate__rotateIn" src={image} alt={alt}/>
-      </Link>
-    </div>
+      <ContainerTile className="container">
+        <div className="column hexagon">
+          <Link onClick={List}>
+            <img className="animate__animated animate__flip" src={image} width="100px" alt={alt}/>
+            <Overlay className="overlay" color={color}>
+              <Text className="text">{alt}</Text>
+            </Overlay>
+          </Link>
+        </div>
+    </ContainerTile>
   )
 }
 

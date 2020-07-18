@@ -1,29 +1,40 @@
 import React from 'react'
-import './styles/Home.css'
+// import './styles/Home.css'
 import Tiles from '../components/Tiles';
 import {TileProvider} from '../utils/TileContext';
-import { HeroBody, Login } from '../style/Home'
+import { MenuTop, MenuBottom, HomeContent } from '../style/Home'
 
 function Home() {
   return (
     <div>
       <div className="wrapperGrey">
-      <section className="hero is-fullheight">
-        <HeroBody className="hero-body has-text-centered">
-          <Login className="login">
-            <h4 className="title is-4">Home</h4>
+        
+        <MenuTop className="menuTop">
+          <div className="nes-field">
+            {/* <label for="name_field">Your name</label>
+            <input type="text" id="name_field" className="nes-input" value="Project Name"/> */}
+          </div>
+          <section>
+              {/* </form>
+            </dialog> */}
+          </section>
+        </MenuTop>
+        <MenuBottom className="menuBottom">
 
             <TileProvider>
-              <div className="columns is-desktop is-mobile">
                 <Tiles />
-              </div>
             </TileProvider>
-
-          </Login>
-        </HeroBody>
-      </section>
+    
+        </MenuBottom>
+        <HomeContent className="homeContent">
+       
+          <div className="entrybox-task"></div>
+          <div className="entrybox-journal"></div>
+          <div className="entrybox-link"></div>
+          <div className="entrybox-photo"></div>
+        </HomeContent>
+ 
       </div>
-
     </div>
   );
 }
