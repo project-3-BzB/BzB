@@ -14,7 +14,7 @@ const SignupBtn = () => {
                 username: user.username, 
                 password: user.password
             })
-            
+            console.log(res)
         } catch (err) {
             console.log(err)
         } 
@@ -24,7 +24,7 @@ const SignupBtn = () => {
         e.preventDefault()
         // console.log(user)
         signup(user)
-        history.push('/login')
+        // history.push('/login')
     }
     
     //Return component jsx
