@@ -17,11 +17,11 @@ const folderSchema = new Schema(
       required: true,
       default: new Date()
     },
-    // updatedAt: {
-    //   type: Date,
-    //   required: false,
-    //   default: null
-    // },
+    updatedAt: {
+      type: Date,
+      required: false,
+      default: null
+    },
     notesList: [
       {
         type: Schema.Types.ObjectId,
