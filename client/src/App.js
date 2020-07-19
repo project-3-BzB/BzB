@@ -7,8 +7,10 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 // import Loading from './pages/Loading'
 // import NotFound from './pages/NotFound'
+import Notes from './pages/Notes'
 import Home from './pages/Home'
 import Tasks from './pages/Tasks'
+import { NoteProvider } from './utils/NoteContext'
 
 function App() {
 
@@ -32,6 +34,11 @@ function App() {
               </GuardedRoute>
               <GuardedRoute exact path={['/Tasks']} >
                 <Tasks />
+              </GuardedRoute>
+              <GuardedRoute exact path={['/notes']}>
+                <NoteProvider>
+                  <Notes />
+                </NoteProvider>
               </GuardedRoute>
               {/* <GuardedRoute exact path={['/Journals']} >
                 <Journals />
