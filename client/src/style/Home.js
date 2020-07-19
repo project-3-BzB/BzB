@@ -10,20 +10,24 @@ export const Login = styled.div `
   background-color: azure;
 `
 
-export const MenuTop = styled.div `
-  position: fixed;
-  top: 0;
-  width: 400px;
-  margin:0 auto;
-  padding: 20px;
-  background-color: #1a1a1ad2;
-  border-bottom-left-radius:20px ;
-  border-bottom-right-radius:20px ;
-  z-index: 1;
+export const Score = styled.div `
+  margin: 60px
 `
 
+// export const MenuTop = styled.div `
+//   position: fixed;
+//   top: 0;
+//   width: 400px;
+//   margin:0 auto;
+//   padding: 20px;
+//   background-color: #1a1a1ad2;
+//   border-bottom-left-radius:20px ;
+//   border-bottom-right-radius:20px ;
+//   z-index: 1;
+// `
+
 export const MenuBottom = styled.div `
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 400px;
   margin:0 auto;
@@ -33,7 +37,7 @@ export const MenuBottom = styled.div `
   border-top-right-radius:20px ;
   z-index: 1;
 `
-
+// // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_zoom
 export const ContainerTile = styled.div `
 .container {
   position: relative;
@@ -59,7 +63,7 @@ export const Overlay = styled.div `
 export const Text = styled.div `
   color: black;
   /* color: white; */
-  font-size: 20px;
+  font-size: 25px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,11 +73,11 @@ export const Text = styled.div `
   text-align: center;
 `
 
-export const HomeContent = styled.div `
-  display: block;
-  width: 80%;
-  background-color: grey;
-  padding: 20px;
-  margin-top: 150px;
-  height: 800px;
-`
+// export const HomeContent = styled.div `
+//   display: block;
+//   width: 80%;
+//   background-color: grey;
+//   padding: 20px;
+//   margin-top: 150px;
+//   height: 800px;
+// `
