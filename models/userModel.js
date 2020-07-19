@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const SALT_WORK_FACTOR = 9; //HIDE THIS IN .env!
+const bcrypt = require("bcrypt");
+const uniqueValidator = require("mongoose-unique-validator");
+const HASH_SYNC_NUM = 12; //hide in .env!!!
 
 const Schema = mongoose.Schema;
 
@@ -27,11 +28,9 @@ const userSchema = new Schema(
       minlenght: 1,
       required: [true, "Unique username is required."]
     },
-    password: {
+    passwordHash: {
       type: String,
-      trim: true,
-      minlength: [4, "Password must be 4 characters long."],
-      required: [true, "Password is required."]
+      required: true
     },
     // character: {
     //   characterName: {
@@ -60,29 +59,39 @@ const userSchema = new Schema(
   }
 );
 
-//https://medium.com/front-end-weekly/how-to-create-a-simple-authorization-login-using-bcrypt-react-and-ajax-d71ed919f5cb
-userSchema.pre("save", function(next) {
-  let user = this;
-  //hashes password if it is new or updated
-  if (!user.isModified("password")) return next();
-  //generate salt
-  bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-    if (err) return next(err);
-    //hash password with salt
-    bcrypt.hash(user.password, salt, function(err, hash) {
-      if (err) return next(err);
-      user.password = hash;
-      next();
-    });
-  });
+userSchema.plugin(uniqueValidator);
+
+userSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.passwordHash);
+};
+
+userSchema.virtual("password").set(function(value) {
+  this.passwordHash = bcrypt.hashSync(value, HASH_SYNC_NUM);
 });
 
-userSchema.statics.validatePassword = function(inputedPassword, realPassword, cb) {
-  bcrypt.compare(inputedPassword, realPassword, function(err, isValid) {
-    if (err) return cb(err);
-    cb(null, isValid);
-  });
-};
+//https://medium.com/front-end-weekly/how-to-create-a-simple-authorization-login-using-bcrypt-react-and-ajax-d71ed919f5cb
+// userSchema.pre("save", function(next) {
+//   let user = this;
+//   //hashes password if it is new or updated
+//   if (!user.isModified("password")) return next();
+//   //generate salt
+//   bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+//     if (err) return next(err);
+//     //hash password with salt
+//     bcrypt.hash(user.password, salt, function(err, hash) {
+//       if (err) return next(err);
+//       user.password = hash;
+//       next();
+//     });
+//   });
+// });
+
+// userSchema.statics.validatePassword = function(inputedPassword, realPassword, cb) {
+//   bcrypt.compare(inputedPassword, realPassword, function(err, isValid) {
+//     if (err) return cb(err);
+//     cb(err, isValid);
+//   });
+// };
 
 const userModel = mongoose.model("userModel", userSchema);
 
