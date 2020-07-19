@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const routes = require("./routes");
 const db = require("./models");
+const cors = require("cors");
 
 //renames express function to app
 const app = express();
@@ -19,7 +20,11 @@ app.use(logger("dev"));
 //code for express
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public-sam"));
+// app.use(express.static("public-sam"));
+app.use(cors({
+    origin: '*',
+    optionsSuccessStatus: 200,
+  }))
 
 //sync to mongoDB using mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bzb", {
