@@ -22,12 +22,12 @@ function App() {
       <GuardProvider guards={[requireLogin]}>
           <div className="App">
             <Switch>
-              <GuardedRoute exact path={['/', '/login']}>
+              {/* <GuardedRoute exact path={['/', '/login']}>
                 <Login />
               </GuardedRoute>
               <GuardedRoute exact path={['/signup']}>
                 <Signup />
-              </GuardedRoute>
+              </GuardedRoute> */}
               {/* <GuardedRoute exact path={['/home']} meta={{auth: true}}> */}
               <GuardedRoute exact path={['/home']} >
                 <Home />

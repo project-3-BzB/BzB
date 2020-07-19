@@ -1,31 +1,43 @@
 import React from 'react'
 import './styles/Home.css'
+import Nav from '../components/Nav';
+import FormHome from '../components/FormHome';
 import Tiles from '../components/Tiles';
 import {TileProvider} from '../utils/TileContext';
-import { HeroBody, Login } from '../style/Home'
+import { HeroBody, Login, HomeContent } from '../style/Home'
 
 function Home() {
   return (
     <div>
       <div className="wrapperGrey">
-      <section className="hero is-fullheight">
-        <HeroBody className="hero-body has-text-centered">
-          <Login className="login">
-            <h4 className="title is-4">Home</h4>
 
-            <TileProvider>
-              <div className="columns is-desktop is-mobile">
-                <Tiles />
-              </div>
-            </TileProvider>
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-12">
+            <Nav />
+          </div>
+        </div>
 
-          </Login>
-        </HeroBody>
-      </section>
+        <FormHome />
+
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-12">
+            <section className="hero is-fullheight">
+              <HeroBody className="hero-body has-text-centered">
+                <Login className="login">
+                  <h4 className="title is-4">BzB</h4>
+                  <TileProvider>
+                    <Tiles />
+                  </TileProvider>
+                </Login>
+              </HeroBody>
+            </section>
+          </div>
+        </div>
+
+    
       </div>
-
     </div>
   );
 }
 
-export default Home;
+export default Home; 
