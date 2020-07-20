@@ -11,6 +11,9 @@ import Notes from './pages/Notes'
 import Home from './pages/Home'
 import Tasks from './pages/Tasks'
 import { NoteProvider } from './utils/NoteContext'
+import { FoldersProvider } from './utils/FolderContext'
+import Folders from './pages/Folders'
+import Folder from './pages/Folder'
 
 function App() {
 
@@ -19,17 +22,18 @@ function App() {
 
   return (
     <Router>
-      <GuardProvider guards={[requireLogin]}>
+      <FoldersProvider>
+        <GuardProvider guards={[requireLogin]}>
           <div className="App">
             <Switch>
-              {/* <GuardedRoute exact path={['/', '/login']}>
+              <GuardedRoute exact path={['/', '/login']}>
                 <Login />
               </GuardedRoute>
               <GuardedRoute exact path={['/signup']}>
                 <Signup />
-              </GuardedRoute> */}
+              </GuardedRoute>
               {/* <GuardedRoute exact path={['/home']} meta={{auth: true}}> */}
-              <GuardedRoute exact path={['/home']} >
+              <GuardedRoute exact path={['/home']} meta={{auth: true}} >
                 <Home />
               </GuardedRoute>
               <GuardedRoute exact path={['/Tasks']} >
@@ -39,6 +43,12 @@ function App() {
                 <NoteProvider>
                   <Notes />
                 </NoteProvider>
+              </GuardedRoute>
+              <GuardedRoute exact path={['/folders']}>
+                <Folders />
+              </GuardedRoute>
+              <GuardedRoute exact path='/folder/:id'>
+                <Folder />
               </GuardedRoute>
               {/* <GuardedRoute exact path={['/Journals']} >
                 <Journals />
@@ -52,6 +62,8 @@ function App() {
             </Switch>
           </div>
       </GuardProvider>
+      </FoldersProvider>
+      
     </Router>
   )
 }

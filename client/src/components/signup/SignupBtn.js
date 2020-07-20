@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+import { UserContext } from '../../utils/UserContext'
 import API from '../../utils/API'
 import { useHistory } from 'react-router-dom'
 

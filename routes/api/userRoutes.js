@@ -18,8 +18,13 @@ const router = express.Router();
 
   // Login Handler
   router.post("/login", passport.authenticate("local"), (req, res) => {
-    console.log(res.req.user);
-    // res.json(res.req.user)
+    // console.log(res.req.user);
+    // const user = res.req.user
+    // res.send(user._id)
+    if(res.req.user) {
+      res.json(res.req.user)
+    }
+    
     // req.login(res.req.user, function(err) {
     //   if (err) next(err);
     //   return res.redirect("/" + req.user._id + "/folder");
@@ -52,11 +57,11 @@ const router = express.Router();
       });
   });
 
-  // // Logout Handler
-  // router.all("/logout", function(req, res) {
-  //   req.logout();
-  //   res.redirect("/login");
-  // });
+  // Logout Handler
+  router.all("/logout", function(req, res) {
+    req.logout();
+    // res.redirect("/login");
+  });
 
   // Error Handler
 //   router.use((err, req, res) => {

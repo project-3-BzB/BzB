@@ -10,14 +10,14 @@
   animation: animatedBackground 1500s linear infinite;
 }
 
-@keyframes animatedBackground {
+/* @keyframes animatedBackground {
   from {
     background-position: 0 0;
   }
   to {
     background-position: 10000px -10000px;
   }
-}
+} */
 
 /* .wrapperGrey {
   background: url(../../img/bg_grey.png);

@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import 'bulma/css/bulma.css'
 import 'animate.css/animate.min.css'
+// import 'nes.css/css/nes.min.css'
 
 ReactDOM.render(
   <React.StrictMode>

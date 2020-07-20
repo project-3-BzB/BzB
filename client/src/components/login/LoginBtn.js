@@ -1,20 +1,26 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+import { UserContext } from '../../utils/UserContext'
 import API from '../../utils/API'
 import { setIsLoggedIn } from '../../utils/Auth'
 import { useHistory } from 'react-router-dom'
+import { FoldersContext } from '../../utils/FolderContext'
 
 
 const LoginBtn = () => {
-    const [ user ] = useContext(UserContext)
+    const [ user, setUser ] = useContext(UserContext)
+    const [folders, setFolders] = useContext(FoldersContext)
     const history = useHistory()
     //Btn logic
     const login = async (user) => {
         try {
             
-            const res = await API.post('api/user/login', {username: user.username, password: user.password})
-            // setIsLoggedIn('herou-test-token')
-            console.log(res)
+          const res = await API.post('api/user/login', {username: user.username, password: user.password})
+          if(res.data) {
+            setIsLoggedIn(res.data._id)
+            setUser({})
+            setFolders({ userId: res.data._id })
+            history.push('/home')
+          }
         } catch (err) {
             console.log(err)
         }
@@ -22,9 +28,7 @@ const LoginBtn = () => {
     const handleSubmit = e => {
         e.preventDefault()
         login(user)
-        // history.push('/home')
     }
-    
     
     //Return component jsx
     return (

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './styles/Home.css'
 import Nav from '../components/Nav';
 import FormHome from '../components/FormHome';
 import Tiles from '../components/Tiles';
 import {TileProvider} from '../utils/TileContext';
 import { HeroBody, Login, HomeContent } from '../style/Home'
+// import { FolderContext } from '../utils/FolderContext';
+// import LogoutBtn from '../components/LogoutBtn';
 
 function Home() {
   return (
