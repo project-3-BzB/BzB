@@ -7,7 +7,7 @@ const folderSchema = new Schema(
     name: {
       type: String,
       trim: true,
-      unique: true,
+      unique: false,
       minlenght: 1,
       required: [true, "Folder name is required."],
       default: "My Folder"
