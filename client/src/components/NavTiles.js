@@ -3,9 +3,10 @@ import '../pages/styles/Home.css'
 import { Score, Login, HomeContent } from '../style/Home'
 
 
-function Nav() {
+function NavTiles() {
  
   return (
+    
       <Score className="level is-mobile">
         <div className="level-item has-text-centered">
           <div>
@@ -35,4 +36,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavTiles;

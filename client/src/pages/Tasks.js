@@ -1,5 +1,7 @@
 import React from 'react'
-import './styles/Home.css'
+import './styles/Tasks.css'
+import NavTiles from '../components/NavTiles';
+import FormHome from '../components/FormHome';
 import CardHome from '../components/CardHome';
 import {TileProvider} from '../utils/TileContext';
 import { HeroBody, Login } from '../style/Home'
@@ -9,6 +11,15 @@ function Tasks() {
 
   return (
     <div>
+      <div className="wrapperBlue">
+
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical is-12">
+            <NavTiles />
+          </div>
+        </div>
+
+        <FormHome />
 
       <div class="tile is-ancestor">
         <div class="tile is-vertical is-8">
@@ -57,8 +68,8 @@ function Tasks() {
 
 
           
-
-    </div>
+            </div>
+      </div>
   );
 }
 
