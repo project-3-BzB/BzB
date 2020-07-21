@@ -4,17 +4,18 @@ import API from '../../utils/API'
 import { useHistory } from 'react-router-dom'
 
 const SignupBtn = () => {
-    const [ user ] = useContext(UserContext)
+    const [user, setUser ] = useContext(UserContext)
     const history = useHistory()
     //Btn logic
     const signup = async user => {
         try {
-            const res = await API.post('/api/user/signup',{
+              await API.post('/api/user/signup',{
                 email: user.email, 
                 username: user.username, 
                 password: user.password
-            })
-            console.log(res)
+              })
+              setUser({})
+              history.push('/login')
         } catch (err) {
             console.log(err)
         } 
@@ -22,9 +23,7 @@ const SignupBtn = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        // console.log(user)
         signup(user)
-        // history.push('/login')
     }
     
     //Return component jsx

@@ -14,7 +14,7 @@ import { NoteProvider } from './utils/NoteContext'
 import { FoldersProvider } from './utils/FolderContext'
 import Folders from './pages/Folders'
 import Folder from './pages/Folder'
-
+console.log('refresh')
 function App() {
 
 
