@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
-export const HeroBody = styled.div `
-  justify-content: center;
+export const CardCenter = styled.div `
+  justify-content: cente
 `
 
-export const Login = styled.div `
+export const Cardcss = styled.div `
   border-radius: 25px;
-  padding: 1.5rem;
-  background-color: azure;
+  background-color: #ffdd57;
 `
 
 export const Score = styled.div `
-  margin: 60px
+  margin: 40px
 `
 
 // export const MenuTop = styled.div `
