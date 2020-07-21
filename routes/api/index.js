@@ -13,4 +13,11 @@ router.use("/note", noteRoutes);
 // router.use("/image", imageRoutes);
 // router.use("/link", linkRoutes);
 
+// Logout Handler (/api/logout)
+router.all("/logout", function(req, res) {
+  req.logout();
+  console.log("USER LOGGED OUT!")
+//   res.redirect("/login");
+});
+
 module.exports = router;

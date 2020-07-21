@@ -81,11 +81,6 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-// Logout Handler
-// router.all("/logout", function(req, res) {
-//   req.logout();
-//   res.redirect("/login");
-// });
 
 // Error Handler
 // router.use((err, req, res) => {
