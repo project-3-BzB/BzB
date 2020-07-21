@@ -89,6 +89,63 @@ router.post("/:_id/new_note", (req, res) => {
       console.log("CREATE NOTE ERROR:", err))
 });
 
+//Create Task (/api/folder/:_id/new_task)
+router.post("/:_id/new_task", (req, res) => {
+  // console.log(req.body)
+  let title = req.body.title;
+  let content = req.body.content;
+  let isComplete = req.body.isComplete;
+  let dueDate = formatTime(req.body);
+  let folderId = req.params;
+  // console.log(folderId)
+  db.Task
+    .create({
+      title: title,
+      content: content,
+      dueDate: dueDate,
+      isComplete: isComplete
+    })
+    .then(({_id}) => {
+      // console.log({_id})
+      db.Folder
+        .findOneAndUpdate(folderId, {$push: {tasksList: _id}}, {new: true})
+        .then(task => {
+          // console.log(task)
+          res.json(task);
+        })
+        .catch(err => {
+          console.log(err);
+          // res.status(401).json(err);
+      });
+    })
+    .catch(err =>
+      console.log("CREATE TASK ERROR:", err))
+});
+
+//Create Image (/api/folder/:_id/new_image)
+router.post("/:_id/new_image", (req, res) => {
+  // console.log(req.body)
+  let folderId = req.params;
+  // console.log(folderId)
+  db.Image
+    .create(req.body)
+    .then(({_id}) => {
+      // console.log({_id})
+      db.Folder
+        .findOneAndUpdate(folderId, {$push: {imagesList: _id}}, {new: true})
+        .then(image => {
+          // console.log(image)
+          res.json(image);
+        })
+        .catch(err => {
+          console.log(err);
+          // res.status(401).json(err);
+      });
+    })
+    .catch(err =>
+      console.log("CREATE IMAGE ERROR:", err))
+});
+
 //Create Link (/api/folder/:_id/new_link)
 router.post("/:_id/new_link", (req, res) => {
   // console.log(req.body)
@@ -112,5 +169,13 @@ router.post("/:_id/new_link", (req, res) => {
     .catch(err =>
       console.log("CREATE LINK ERROR:", err))
 });
+
+function formatTime(input) {
+  // console.log(input);
+  let month = input.month - 1;
+  let dueDate = new Date(input.year, month, input.day, input.hour, input.minute);
+  // console.log(dueDate)
+  return dueDate;
+};
 
 module.exports = router;
