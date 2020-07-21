@@ -1,0 +1,16 @@
+@media (max-width: 1023px) {
+
+
+.mobileButton {
+    position: absolute;
+    right: 10px;
+    top: 1px;
+}
+
+.folderContent {
+    width: 800px;
+    padding: 20px;
+    margin-top: 100px;
+  }
+
+}

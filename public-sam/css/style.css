@@ -9,7 +9,28 @@ margin: 25px;
 margin-bottom: 35px;
   }
 
-  .gameFont {font-family: 'Press Start 2P', cursive;}
+  .fas {
+    margin-right: 5px;
+  }
+
+.folderTitle {
+  display: block;
+  font-size: 16pt;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.delete {
+  position: absolute;
+  margin-left: 20%;
+}
+
+  .dateCreated {
+    color: #747474;
+    font-style: italic;
+    font-size: 11pt;
+  }
+
 
   .rightAlign {
     position: absolute;
@@ -41,10 +62,10 @@ margin-bottom: 35px;
 
   /* BACKGROUND COLOR: YELLOW */
   .wrapperYellow {
+    min-height: 100vh;
+    width: 100%;
     background: url(../img/bg_yellow.png);
     background-repeat: repeat;
-    min-height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
   }
@@ -117,7 +138,7 @@ margin-bottom: 35px;
 .folderContent {
   width: 800px;
   padding: 20px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 /* TEXT FORMATTING FOR ENTRIES */
@@ -137,10 +158,11 @@ margin-bottom: 35px;
   margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 20px;
 }
 
 .entrybox-folder {
-  background: #b4b4b4;
+  background: #ececec;
 }
 
 .entrybox-task {
