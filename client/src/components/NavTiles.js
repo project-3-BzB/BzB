@@ -1,38 +1,31 @@
 import React, {useContext} from 'react';
-import '../pages/styles/Home.css'
-import { Score, Login, HomeContent } from '../style/Home'
+import '../pages/styles/Tasks.css'
+import { Nav } from '../style/Tasks'
+import {TileContext} from '../utils/TileContext';
+import NavTile from './NavTile';
 
 
 function NavTiles() {
- 
+  const [tiles, setTiles] = useContext(TileContext);
+
   return (
     
-      <Score className="level is-mobile">
-        <div className="level-item has-text-centered">
-          <div>
-            <p className="title has-text-warning">Tasks</p>
-            <p className="title has-text-warning">3</p>
-          </div>
+      <Nav className="level is-mobile">
+        <div className="level-item has-text-centered"></div>
+    
+        <div className="columns is-mobile">
+          {tiles.map(tile => (
+          <NavTile 
+            image={tile.image}
+            alt={tile.alt}
+            page={tile.page}
+            color={tile.color}
+            key={tile.id}/>
+          ))}
         </div>
-        <div className="level-item has-text-centered">
-          <div>
-            <p className="title has-text-warning">Jounals</p>
-            <p className="title has-text-warning">18</p>
-          </div>
-        </div>
-        <div className="level-item has-text-centered">
-          <div>
-            <p className="title has-text-warning">Links</p>
-            <p className="title has-text-warning">15</p>
-          </div>
-        </div>
-        <div className="level-item has-text-centered">
-          <div>
-            <p className="title has-text-warning">Photos</p>
-            <p className="title has-text-warning">22</p>
-          </div>
-        </div>
-      </Score>
+
+        <div className="level-item has-text-centered"></div>
+      </Nav>
   );
 }
 

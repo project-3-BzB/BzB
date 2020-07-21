@@ -4,7 +4,8 @@ import NavTiles from '../components/NavTiles';
 import FormHome from '../components/FormHome';
 import CardHome from '../components/CardHome';
 import {TileProvider} from '../utils/TileContext';
-import { HeroBody, Login } from '../style/Home'
+import { HomeContent, Login } from '../style/Tasks'
+
 import TaskList from '../components/TaskList';
 
 function Tasks() {
@@ -14,12 +15,39 @@ function Tasks() {
       <div className="wrapperBlue">
 
         <div class="tile is-ancestor">
-          <div class="tile is-vertical is-12">
-            <NavTiles />
+          <div class="tile is-parent is-vertical is-12">
+            <TileProvider>
+              <NavTiles />
+            </TileProvider>
           </div>
         </div>
 
         <FormHome />
+
+        <div class="columns is-mobile is-centered">
+          <div class="column is-four-fifths">
+       
+          <div class="entrybox-task">
+            <p class="Title is-4">Task Title</p>
+          </div>
+          <div class="entrybox-task">
+            <p class="entryTitle">Task Title</p>
+          </div>
+          <div class="entrybox-task">
+            <p class="entryTitle">Task Title</p>
+          </div>
+          <div class="entrybox-task">
+            <p class="entryTitle">Task Title</p>
+          </div>
+          <div class="entrybox-task">
+            <p class="entryTitle">Task Title</p>
+          </div>
+          <div class="entrybox-task">
+            <p class="entryTitle">Task Title</p>
+          </div>
+        </div>
+        </div>
+
 
       <div class="tile is-ancestor">
         <div class="tile is-vertical is-8">
