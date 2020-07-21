@@ -6,8 +6,8 @@ import {TileContext} from '../../utils/TileContext';
 function Tiles() {
   const [tiles, setTiles] = useContext(TileContext);
   
-  const tileGroup1 = tiles.slice(0, 2);
-  const tileGroup2 = tiles.slice(2, 4);
+  const tileGroup1 = tiles.slice(1, 3);
+  const tileGroup2 = tiles.slice(3, 5);
 
   return (
     <div>
