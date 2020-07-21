@@ -41,16 +41,7 @@
   height: 800px;
 } */
 
-.entrybox-task {
-  display: block;
-  width: 80%;
-  height: 80px;
-  background: #58afff;
-  border-radius: 20px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+
 
 .entrybox-journal {
   display: block;
