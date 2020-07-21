@@ -1,6 +1,6 @@
 .wrapperGrey {
   background: url(../../img/bg_grey.png);
-  width: 100%;
+  width: 105%;
   height: 140%;
   position: absolute;
   top: 0;
@@ -30,7 +30,7 @@
 .container:hover .overlay {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 /* .homeContent {

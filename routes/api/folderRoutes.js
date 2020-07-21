@@ -38,22 +38,31 @@ router.put("/:_id", (req, res) => {
   });
 });
 
-//Delete Folder (/api/folder/:_id)
-router.delete("/:_id", (req, res) => {
-  let folderId = req.params;
-  // console.log(folderId)
-  db.Folder
-    .findById(folderId)
-    .then(folder => {
-      folder.remove()
+//Delete Folder (/api/folder/delete/:user_id/:folder_id)
+router.delete("/delete/:user_id/:folder_id", (req, res) => {
+  // console.log(req.params)
+  let userId = req.params.user_id;
+  let folderId = req.params.folder_id;
+  db.User
+    .findOneAndUpdate({_id: userId}, {$pull: {foldersList: folderId}}, {safe: true, upsert: true, new: true})
+    .then(folderList => {
+      console.log(folderList)
     })
-    .then(folder => {
-      console.log("FOLDER DELETED!");
-      res.json(folder);
+    .then(() => {
+      db.Folder
+        .findById(folderId)
+        .then(folder => {
+          folder.remove();
+          console.log("FOLDER DELETED!");
+          res.json(folder);
+        })
+        .catch(err => {
+          console.log("DELETE FOLDER OBJECT ERROR: ", err);
+      });
     })
     .catch(err => {
-      console.log("GET FOLDER ERROR: ", err);
-  });
+      console.log("DELETE FOLDER ERROR: ", err);
+    });
 });
 
 //Create Note (/api/folder/:_id/new_note)
@@ -68,7 +77,7 @@ router.post("/:_id/new_note", (req, res) => {
       db.Folder
         .findOneAndUpdate(folderId, {$push: {notesList: _id}}, {new: true})
         .then(note => {
-          // console.log(folder)
+          // console.log(note)
           res.json(note);
         })
         .catch(err => {
@@ -78,6 +87,30 @@ router.post("/:_id/new_note", (req, res) => {
     })
     .catch(err =>
       console.log("CREATE NOTE ERROR:", err))
+});
+
+//Create Link (/api/folder/:_id/new_link)
+router.post("/:_id/new_link", (req, res) => {
+  // console.log(req.body)
+  let folderId = req.params;
+  // console.log(folderId)
+  db.Link
+    .create(req.body)
+    .then(({_id}) => {
+      // console.log({_id})
+      db.Folder
+        .findOneAndUpdate(folderId, {$push: {linksList: _id}}, {new: true})
+        .then(link => {
+          // console.log(link)
+          res.json(link);
+        })
+        .catch(err => {
+          console.log(err);
+          // res.status(401).json(err);
+      });
+    })
+    .catch(err =>
+      console.log("CREATE LINK ERROR:", err))
 });
 
 module.exports = router;

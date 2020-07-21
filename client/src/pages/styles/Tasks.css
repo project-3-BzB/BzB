@@ -1,0 +1,28 @@
+.wrapperBlue {
+  background: url(../../img/bg_blue.png);
+  width: 105%;
+  height: 140%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: animatedBackground 1500s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px -10000px;
+  }
+}
+
+/* .wrapperGrey {
+  background: url(../../img/bg_grey.png);
+  background-repeat: repeat;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */

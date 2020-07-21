@@ -16,7 +16,7 @@ const Tile = ({ image, alt, page, color }) => {
     <ContainerTile className="container">
       <div className="column">
       <Link onClick={List}>
-        <img className="animate__animated animate__flip" src={image} alt={alt}/>
+        <img className="animate__animated animate__flip" src={image} width="232px" alt={alt}/>
         <Overlay className="overlay" color={color}>
           <Text className="text">{alt}</Text>
         </Overlay>
