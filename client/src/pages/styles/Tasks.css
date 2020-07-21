@@ -4,6 +4,7 @@
   height: 100%;
   top: 0;
   left: 0;
+  min-height: 100vh;
   background-repeat: repeat;
   background-position: 0 0;
   animation: animatedBackground 1500s linear infinite;
@@ -31,7 +32,7 @@
   line-height: 1.0;
 }
 
-
-.box {
-  background-color: gold;
+.task {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
