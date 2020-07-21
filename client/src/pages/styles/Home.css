@@ -1,8 +1,7 @@
 .wrapperGrey {
   background: url(../../img/bg_grey.png);
-  width: 105%;
-  height: 140%;
-  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   background-repeat: repeat;
@@ -42,16 +41,7 @@
   height: 800px;
 } */
 
-.entrybox-task {
-  display: block;
-  width: 80%;
-  height: 80px;
-  background: #58afff;
-  border-radius: 20px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+
 
 .entrybox-journal {
   display: block;

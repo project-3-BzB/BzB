@@ -1,13 +1,13 @@
-import React, {useContext} from 'react';
+import React, { useContext} from 'react';
 // import "./style.css";
 import Tile from '../Tile';
 import {TileContext} from '../../utils/TileContext';
 
 function Tiles() {
   const [tiles, setTiles] = useContext(TileContext);
-
-  const tileGroup1 = tiles.slice(0, 2);
-  const tileGroup2 = tiles.slice(2, 4);
+  
+  const tileGroup1 = tiles.slice(1, 3);
+  const tileGroup2 = tiles.slice(3, 5);
 
   return (
     <div>
@@ -28,10 +28,11 @@ function Tiles() {
           alt={tile.alt}
           page={tile.page}
           color={tile.color}
+          width={tile.width}
           key={tile.id}/>
         ))}
       </div>
-      </div>
+    </div>
   );
 }
 

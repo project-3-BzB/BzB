@@ -20,16 +20,9 @@ function FormHome() {
           </div>
         </div>
         
-        <div class="field is-grouped">
-          <div class="column is-half">
-            <div class="control">
-              <button class="button is-warning is-fullwidth">View All Projects</button>
-            </div>
-          </div>
-          <div class="column is-half">
-            <div class="control">
-              <button class="button is-link is-light is-fullwidth">View Your Profile</button>
-            </div>
+        <div class="field">
+          <div class="control">
+            <button class="button is-warning is-fullwidth">View All Projects</button>
           </div>
         </div>
         

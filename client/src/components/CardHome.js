@@ -7,7 +7,7 @@ import { Cardcss, CardCenter } from '../style/Home'
 function CardHome() {
  
   return (
-    <div class="columns is-mobile is-centered cardContainer">
+    <div class="columns is-mobile is-centered">
       <div class="column is-half">
         <Cardcss class="card">
           <div class="card-content">
