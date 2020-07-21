@@ -4,44 +4,121 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BzB : Tasks</title>
+    <title>BzB : Folders</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
   </head>
 
   <body>
-    <div class="wrapperBlue">
-      <div class="menuTop">
-        <div class="nes-field">
-          <input type="text" id="name_field" class="nes-input" value="Project Name">
-          <button type="button" class="nes-btn is-primary">View All Projects</button>
-          <button type="button" class="nes-btn is-success">View Your Profile</button>
+    <nav class="navbar fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="img/logo_header.png">
+        </a>
+    
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          
+            <button type="button" class="nes-btn is-primary gameFont" onclick="document.getElementById('dialog-default').showModal();">
+              Add Folder
+            </button>
+            <dialog class="nes-dialog" id="dialog-default">
+              <form method="dialog">
+                <div class="nes-field">
+                  <input type="text" id="name_field" class="nes-input">
+                </div>
+                </menu>
+              </form>
+            </dialog>
+          
+            </div>
+          </div>
         </div>
-        <section>
-            </form>
-          </dialog>
-        </section>
-       </div>
-       <div class="menuBottom">
-        <div class="columns is-desktop is-mobile">
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="tasks.html"><img src="img/button_tasks.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="journals.html"><img src="img/button_journals.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="links.html"><img src="img/button_links.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="photos.html"><img src="img/button_photos.png" width="100px"></a></div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+
+              <div class="nes-field">
+                <input type="text" id="name_field" class="nes-input" placeholder="Search Folders">
+              </div>
+           
+            </div>
+          </div>
         </div>
       </div>
+    </nav>
+    <div class="wrapperYellow">
 
-      <div class="homeContent">
+
+      <div class="folderContent">
+
+        
+
+
        
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+        <div class="nes-container is-rounded is-dark gameFont">
+          Folder Name
+          <button type="button" class="nes-btn is-error is-pulled-right">Delete</button><button type="button" class="nes-btn is-success is-pulled-right">View</button> 
+        </div>
+
+
+
+
       </div>
   </div>
   </body>
