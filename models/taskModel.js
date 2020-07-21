@@ -31,12 +31,13 @@ const taskSchema = new Schema(
     //ISO 8601 & moment.js
     dueDate: {
       type: Date,
-      required: true
+      required: true,
     },
     //unique method
     isComplete: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
     }
   }
 );
