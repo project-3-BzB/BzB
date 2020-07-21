@@ -4,7 +4,7 @@ import NavTiles from '../components/NavTiles';
 import FormHome from '../components/FormHome';
 import CardHome from '../components/CardHome';
 import {TileProvider} from '../utils/TileContext';
-import { HomeContent, Login } from '../style/Tasks'
+import { BoxTask, Login } from '../style/Tasks'
 
 import TaskList from '../components/TaskList';
 
@@ -27,24 +27,36 @@ function Tasks() {
         <div class="columns is-mobile is-centered">
           <div class="column is-four-fifths">
        
-          <div class="entrybox-task">
-            <p class="Title is-4">Task Title</p>
-          </div>
-          <div class="entrybox-task">
-            <p class="entryTitle">Task Title</p>
-          </div>
-          <div class="entrybox-task">
-            <p class="entryTitle">Task Title</p>
-          </div>
-          <div class="entrybox-task">
-            <p class="entryTitle">Task Title</p>
-          </div>
-          <div class="entrybox-task">
-            <p class="entryTitle">Task Title</p>
-          </div>
-          <div class="entrybox-task">
-            <p class="entryTitle">Task Title</p>
-          </div>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
+          <BoxTask class="column">
+            <div class="notification is-link">
+              This container is centered on desktop.
+            </div>
+          </BoxTask>
         </div>
         </div>
 

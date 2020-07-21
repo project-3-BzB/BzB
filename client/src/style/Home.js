@@ -10,7 +10,7 @@ export const Cardcss = styled.div `
 `
 
 export const Score = styled.div `
-  margin: 40px;
+  margin: 50px;
 `
 
 // export const MenuTop = styled.div `

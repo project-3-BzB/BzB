@@ -21,12 +21,9 @@ function FormHome() {
         </div>
         
         <div class="field">
-          <div class="column">
-            <div class="control">
-              <button class="button is-warning is-fullwidth is-centered">View All Projects</button>
-            </div>
+          <div class="control">
+            <button class="button is-warning is-fullwidth">View All Projects</button>
           </div>
-          
         </div>
         
       </div>

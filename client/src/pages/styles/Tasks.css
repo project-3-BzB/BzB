@@ -25,3 +25,13 @@
   display: flex;
   justify-content: center;
 } */
+
+.notification {
+  font-size: 1.4em;
+  line-height: 1.0;
+}
+
+
+.box {
+  background-color: gold;
+}
