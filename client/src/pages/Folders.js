@@ -4,19 +4,21 @@ import API from '../utils/API'
 import { Link } from 'react-router-dom'
 import { ul, li, div } from '../style/Folders'
 import FormInput from '../components/FormInput'
+import { getIsLoggedIn } from '../utils/Auth'
 
 const Folders = () => {
   const [folders, setFolders] = useContext(FoldersContext)
-  const [newFolder, setNewFolder] = useState({})
+  const [newFolder, setNewFolder] = useState('')
   const [modalActive, setModalActive] = useState(false)
-  // console.log(folders)
+  const id = getIsLoggedIn()
+
   
   useEffect(() => {
     loadFolders()
   }, [])
 
   function loadFolders() {
-    API.get(`api/user/${folders.userId}`)
+    API.get(`api/user/${id}`)
     .then(res => {
       console.log(res.data[0])
       if(res.data) {
@@ -28,17 +30,7 @@ const Folders = () => {
 
   const deleteFolder = async data => {
     try {
-      API.delete(`api/folder/delete/${folders.userId}/${data}`)
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
-
-  const createFolder = async () => {
-    try {
-      await API.post(`api/user/${folders.userId}/new_folder`, {name: newFolder.name})
-      // console.log(res)
+      API.delete(`api/folder/delete/${id}/${data}`)
       loadFolders()
     }
     catch (err) {
@@ -46,20 +38,36 @@ const Folders = () => {
     }
   }
 
-  const handleClick = e => {
+  // const confirmDelete = () => {
+
+  // }
+
+  const createFolder = async () => {
+    try {
+      await API.post(`api/user/${id}/new_folder`, {name: newFolder})
+      // console.log(res)
+      loadFolders()
+      setNewFolder('')
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleModal = e => {
     e.preventDefault()
-    setNewFolder({})
+    setNewFolder('')
     modalActive ? setModalActive(false) : setModalActive(true)
   }
 
   const handleChange = e => {
     e.preventDefault()
-    const { name, value } = e.target
-    setNewFolder({[name]: value.trim()})
+    const { value } = e.target
+    setNewFolder(value.trim())
     // console.log(newFolder)
   }
 
-  const handleSubmit = e => {
+  const handleCreate = e => {
     e.preventDefault()
     // setFolders({foldersList: []})
     createFolder()
@@ -70,8 +78,8 @@ const Folders = () => {
   const handleDelete = e => {
     e.preventDefault()
     const { name } = e.target
-    console.log(name)
-    // deleteFolder(name)
+    // console.log(name)
+    deleteFolder(name)
   }
 
   return (
@@ -92,17 +100,18 @@ const Folders = () => {
         </ul>
       ) : <h2>No Folders Found</h2> }
 
-      <button onClick={handleClick}>New Folder</button>
+      <button onClick={handleModal}>New Folder</button>
 
       <div className={modalActive ? 'modal is-active' : 'modal'}>
         <div className="modal-background"></div>
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">Modal title</p>
-            <button className="delete" aria-label="close" onClick={handleClick}></button>
+            <button className="delete" aria-label="close" onClick={handleModal}></button>
           </header>
           <section className="modal-card-body">
             <FormInput
+              value={newFolder}
               name='name'
               type='name'
               placeholder='New Folder Name'
@@ -110,8 +119,8 @@ const Folders = () => {
             />
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success" onClick={handleSubmit}>Create Folder</button>
-            <button className="button" onClick={handleClick}>Cancel</button>
+            <button className="button is-success" onClick={handleCreate}>Create Folder</button>
+            <button className="button" onClick={handleModal}>Cancel</button>
           </footer>
         </div>
       </div>

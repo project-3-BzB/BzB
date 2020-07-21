@@ -9,7 +9,7 @@ import Folders from '../../pages/Folders'
 
 const LoginBtn = () => {
   const [user, setUser] = useContext(UserContext)  
-  const [folders, setFolders] = useContext(FoldersContext)
+  // const [folders, setFolders] = useContext(FoldersContext)
   const history = useHistory()
   // let id
 
@@ -27,7 +27,7 @@ const LoginBtn = () => {
       const res = await API.post('api/user/login', 
       {username: user.username, password: user.password})
       
-      setFolders({...folders, userId: res.data._id})
+      // setFolders({...folders, userId: res.data._id})
       setUser({})
       setIsLoggedIn(res.data._id)
       history.push('/folders')

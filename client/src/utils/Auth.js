@@ -10,7 +10,7 @@ export const setIsLoggedOut = () => {
     localStorage.removeItem('token')
 }
 
-const getIsLoggedIn = () => {
+export const getIsLoggedIn = () => {
     return localStorage.getItem('token')
 }
 
