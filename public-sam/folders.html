@@ -4,44 +4,103 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BzB : Tasks</title>
+    <title>BzB : Folders</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2416995144.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
   </head>
-
   <body>
-    <div class="wrapperBlue">
-      <div class="menuTop">
-        <div class="nes-field">
-          <input type="text" id="name_field" class="nes-input" value="Project Name">
-          <button type="button" class="nes-btn is-primary">View All Projects</button>
-          <button type="button" class="nes-btn is-success">View Your Profile</button>
-        </div>
-        <section>
-            </form>
-          </dialog>
-        </section>
-       </div>
-       <div class="menuBottom">
-        <div class="columns is-desktop is-mobile">
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="tasks.html"><img src="img/button_tasks.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="journals.html"><img src="img/button_journals.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="links.html"><img src="img/button_links.png" width="100px"></a></div>
-          <div class="column menuIcon animate__animated animate__flipInY"><a href="photos.html"><img src="img/button_photos.png" width="100px"></a></div>
+
+    <!--START NAVBAR-->
+    <nav class="navbar fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#"><img src="img/logo_header.png"></a>
+      </div>
+        <div class="navbar-start is-active mobileButton">
+          <div class="navbar-item">
+            <button type="button" class="button is-primary is-rounded is-active"  onclick="document.getElementById('dialog-default').showModal();">
+              <i class="fas fa-plus-square"></i>Add Folder
+            </button>
+
+            <!--MODAL BOX-->
+            <dialog id="dialog-default">
+              <form method="dialog">
+                <input class="input is-rounded" type="text" placeholder="Folder Name">
+                <button type="button" class="button is-primary is-rounded"" onclick="document.getElementById('dialog-default').showModal();">
+                  Add Folder
+                </button>
+              </div>
+              </form>
+            </dialog>
+          </div>
+            </div>
+          </div>
+        <div class="navbar-end">
+          <div class="navbar-item"><input class="input is-rounded" type="text" placeholder="Search Folders">
+            </div>
+          </div>
         </div>
       </div>
+    </nav>
+    <!-- START SITE-->
+    <div class="wrapperYellow">
 
-      <div class="homeContent">
-       
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
-        <div class="entrybox-task"><p class="entryTitle">Task Title</p></div>
+      <div class="folderContent">
+
+        <div class="notification">
+          <button class="delete"></button>
+          <article class="media">
+            <div class="media-left">
+              <i class="fas fa-folder fa-3x"></i>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <a href="home.html"><p class="subtitle is-5">My First Folder</p></a>
+                  Created 01/02/2020 5:12 PM
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="notification">
+          <button class="delete"></button>
+          <article class="media">
+            <div class="media-left">
+              <i class="fas fa-folder fa-3x"></i>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                  <p class="subtitle is-5">My First Folder</p>
+                  Created 01/02/2020 5:12 PM
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="notification">
+          <button class="delete"></button>
+          <article class="media">
+            <div class="media-left">
+              <i class="fas fa-folder fa-3x"></i>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                  <p class="subtitle is-5">My First Folder</p>
+                  Created 01/02/2020 5:12 PM
+              </div>
+            </div>
+          </article>
+        </div>
+
+     
+        
+
+
+
+
       </div>
   </div>
   </body>

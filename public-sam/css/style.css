@@ -8,26 +8,66 @@
 margin: 25px;
 margin-bottom: 35px;
   }
+
+  .fas {
+    margin-right: 5px;
+  }
+
+.folderTitle {
+  display: block;
+  font-size: 16pt;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.delete {
+  position: absolute;
+  margin-left: 20%;
+}
+
+  .dateCreated {
+    color: #747474;
+    font-style: italic;
+    font-size: 11pt;
+  }
+
+
+  .rightAlign {
+    position: absolute;
+    right: 0px;
+  }
   
   :root {
     --shadowDark: #D9DDE6;
     --background: #E4E9F2;
     --shadowLight: #EFF5FE;
   }
-  
-  body {
-    
+
+  .navbar {
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
   }
+  
+.folderName {
+  margin-left: 50px;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+
+.navbar-end {
+}
 
   /* BACKGROUND COLOR: YELLOW */
   .wrapperYellow {
-    background: url(../img/bg_yellow.png);
+    min-height: 100vh;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background: url(../img/bg_yellow.png);
     background-repeat: repeat;
-    background-position: 0 0;
+    display: flex;
+    justify-content: center;
   }
 
   /* BACKGROUND COLOR: GREY */
@@ -45,6 +85,7 @@ margin-bottom: 35px;
     width: 100%;
     display: flex;
     justify-content: center;
+    
   }
   
 
@@ -52,7 +93,7 @@ margin-bottom: 35px;
   .containerHome {
     width: 80%;
     background-color: transparent;
-    height: 70%;
+
     border-radius: 25px;
     padding: 20px;
   }
@@ -91,7 +132,13 @@ margin-bottom: 35px;
   width: 80%;
   padding: 20px;
   margin-top: 120px;
-  height: 800px;
+}
+
+
+.folderContent {
+  width: 800px;
+  padding: 20px;
+  margin-top: 80px;
 }
 
 /* TEXT FORMATTING FOR ENTRIES */
@@ -103,48 +150,35 @@ margin-bottom: 35px;
 
 
 /* ENTRYBOX CLASSES : COLORS */
-.entrybox-task {
+.entrybox {
   display: block;
   width: 80%;
   height: 80px;
-  background: #58afff;
   border-radius: 20px;
   margin-left: 10%;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 20px;
+}
+
+.entrybox-folder {
+  background: #ececec;
+}
+
+.entrybox-task {
+  background: #58afff;
 }
 
 .entrybox-journal {
-  display: block;
-  width: 80%;
-  height: 80px;
   background: #801ae5;
-  border-radius: 20px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .entrybox-link {
-  display: block;
-  width: 80%;
-  height: 80px;
   background: #ff4c50;
-  border-radius: 20px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .entrybox-photo {
-  display: block;
-  width: 80%;
-  height: 80px;
   background: #ff7e4c;
-  border-radius: 20px;
-  margin-left: 10%;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 /* LOGIN FORMATTING */
