@@ -7,7 +7,7 @@ const taskSchema = new Schema(
     title: {
       type: String,
       trim: true,
-      unique: true,
+      unique: false,
       minlenght: 1,
       required: [true, "A title is required."]
     },
@@ -18,7 +18,7 @@ const taskSchema = new Schema(
     },
     updatedAt: {
       type: Date,
-      required: true,
+      required: false,
       default: null
     },
     content: {
