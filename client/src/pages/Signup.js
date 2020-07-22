@@ -5,7 +5,7 @@ import SignupNav from '../components/signup/SignupNav'
 import Logo from '../components/Logo'
 import { Div, HeroBody, Wrapper } from '../style/Signup'
 import img from '../img/bg_yellow.png'
-import { UserProvider } from '../context/UserContext'
+import { UserProvider } from '../utils/UserContext'
 
 
 const Signup = () => {

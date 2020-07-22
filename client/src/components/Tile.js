@@ -1,22 +1,30 @@
 import React from 'react';
+import '../pages/styles/Home.css'
 import { Link, useLocation } from "react-router-dom";
+import { ContainerTile, Overlay, Text } from '../style/Home'
 
-const Tile = ({ image, alt, page }) => {
-  
+const Tile = ({ image, alt, page, color }) => {
+
   const location = useLocation();
 
-    function List() {
+      function List() {
+        console.log (page)
         window.location.assign(page)
       return
     }
-
-    return (
-    <div className="column is-half-mobile">
+    
+  return (
+    <ContainerTile className="container">
+      <div className="column">
       <Link onClick={List}>
-        <img className="animate__animated animate__rotateIn" src={image} alt={alt}/>
+        <img className="animate__animated animate__flip" src={image} width="232px" alt={alt}/>
+        <Overlay className="overlay" color={color}>
+          <Text className="text">{alt}</Text>
+        </Overlay>
       </Link>
-    </div>
+      </div>
+    </ContainerTile>
   )
 }
 
-export default Tile;
+export default Tile; 

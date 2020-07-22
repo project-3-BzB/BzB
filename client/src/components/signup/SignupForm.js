@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../../context/UserContext'
+import { UserContext } from '../../utils/UserContext'
 import SignupBtn from './SignupBtn'
 import FormInput from '../FormInput'
 

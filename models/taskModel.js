@@ -7,7 +7,7 @@ const taskSchema = new Schema(
     title: {
       type: String,
       trim: true,
-      unique: true,
+      unique: false,
       minlenght: 1,
       required: [true, "A title is required."]
     },
@@ -18,7 +18,7 @@ const taskSchema = new Schema(
     },
     updatedAt: {
       type: Date,
-      required: true,
+      required: false,
       default: null
     },
     content: {
@@ -31,12 +31,13 @@ const taskSchema = new Schema(
     //ISO 8601 & moment.js
     dueDate: {
       type: Date,
-      required: true
+      required: true,
     },
     //unique method
     isComplete: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
     }
   }
 );

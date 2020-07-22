@@ -1,32 +1,44 @@
 import React, {useState, createContext} from 'react';
 
+
 export const TileContext = createContext();
 
 export const TileProvider = props => {
   const [tiles, setTiles] = useState([
     {
-      image: 'images/button_tasks.png',
-      alt: 'Tasks',
-      page: '/Tasks',
+      image: props.bee,
+      alt: 'Home',
+      page: props.bLink,
+      color: 'gold',
       id: 1
     },
     {
-      image: 'images/button_journals.png',
-      alt: 'Journals',
-      page: '/Journals',
+      image: props.task,
+      alt: 'Tasks',
+      page: props.tLink,
+      color: '#58afff',
       id: 2
     },
     {
-      image: 'images/button_links.png',
-      alt: 'Links',
-      page: '/Links',
+      image: props.note,
+      alt: 'Journals',
+      page: props.jLink,
+      color: '#A78EE6',
       id: 3
     },
     {
-      image: 'images/button_photos.png',
-      alt: 'Photos',
-      page: '/Photos',
+      image: props.link,
+      alt: 'Links',
+      page: props.lLink,
+      color: '#ff4c50',
       id: 4
+    },
+    {
+      image: props.img,
+      alt: 'Photos',
+      page: props.pLink,
+      color: '#ff7e4c',
+      id: 5
     }
   ]);
   return(

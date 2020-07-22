@@ -1,45 +1,31 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
-const validatePassword = db.User.schema.statics.validatePassword;
 
-//https://mherman.org/blog/local-authentication-with-passport-and-express-4/
-passport.use(new LocalStrategy(
-  //users sign in with username
-  {
-    usernameField: "username",
-    passwordField: "password"
-  },
-  function(username, password, done) {
-    // console.log(username, password, done)
-    //finds user through their username in database
-    db.User.findOne({username: username})
-      .then(function(user) {
-      //username validation
-      if (!user) {
-        return done(null, false, {
-          message: "Incorrect username."
-        });
+// const validPassword = db.User.schema.methods.validPassword;
+
+const local = new LocalStrategy((username, password, done) => {
+  db.User.findOne({ username })
+    .then(user => {
+      if (!user || !user.validPassword(password)) {
+        console.log("Authentication failure!")
+        done(null, false);
+      } else {
+        console.log("Authentication success!")
+        done(null, user);
       }
-      // console.log(password, user.password)
-      validatePassword(password, user.password, (err, isValid) => {
-        if (!isValid) {
-          console.log(err)
-        };
-        return user
-      });
-      return done(null, user.password);
-    });
-  }
-));
-
-//from boilerplate code
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+    })
+    .catch(e => done(e));
 });
 
-//exporting our configured passport
+passport.use("local", local);
+
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser(function(userId, done) {
+  db.User.findById(userId, (err, user) => done(err, user));
+});
+
 module.exports = passport;

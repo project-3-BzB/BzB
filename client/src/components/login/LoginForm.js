@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import LoginBtn from './LoginBtn'
 import FormInput from '../FormInput'
-import { UserContext } from '../../context/UserContext'
+import { UserContext } from '../../utils/UserContext'
 
 
 const LoginForm = () => {

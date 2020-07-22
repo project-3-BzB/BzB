@@ -1,23 +1,41 @@
 import React from 'react'
-import './styles/Home.css'
-import Tiles from '../components/Tiles';
+import './styles/Tasks.css'
+import NavTiles from '../components/NavTiles';
+import FormHome from '../components/FormHome';
+import ProjectName from '../components/ProjectName';
+import TaskFolder from '../components/TaskFolder';
 import {TileProvider} from '../utils/TileContext';
-import { HeroBody, Login } from '../style/Home'
-import TaskList from '../components/TaskList';
+
 
 function Tasks() {
 
   return (
     <div>
-      <TileProvider>
-              {/* <div className="columns is-desktop is-mobile"> */}
-              <TaskList />
-              {/* </div> */}
+      <div className="wrapperBlue">
+
+        <div className="tile is-ancestor">
+          <div className="tile is-parent is-vertical is-12">
+            <TileProvider>
+              <NavTiles />
             </TileProvider>
+          </div>
+        </div>
+    
+        {/* <FormHome /> */}
+       <ProjectName />
+      
+        <div className="columns is-ancestor is-mobile is-centered">
+          <div className="column is-two-thirds ">
+            <TaskFolder />
+            <TaskFolder />
+            <TaskFolder />
+            <TaskFolder />
+            <TaskFolder />
+            <TaskFolder />
+          </div>
+        </div>
 
-
-          
-
+      </div>
     </div>
   );
 }

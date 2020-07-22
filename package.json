@@ -25,16 +25,20 @@
   "homepage": "https://github.com/project-3-BzB/BzB#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "moment": "^2.27.0",
     "mongoose": "^5.9.24",
+    "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
-    
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

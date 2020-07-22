@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BzB : Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/hexagon.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/2416995144.js" crossorigin="anonymous"></script>  </head>
+
+  <body>
+
+<!--START NAVBAR-->
+<nav class="navbar fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+<img class="navlogo" src="img/logo_header.png">
+  </div>
+    <div class="navbar-start is-active mobileButton">
+      <div class="navbar-item">
+        <button type="button" class="button is-primary is-rounded is-active"  onclick="document.getElementById('dialog-default').showModal();">
+          <i class="fas fa-plus-square"></i>Menu
+        </button>
+
+
+        <!--MODAL BOX-->
+        <dialog id="dialog-default">
+          <form method="dialog">
+            <div class="modalContent">
+            <button type="button" class="button is-primary is-rounded">
+                View Profile
+            </button>
+            <hr>
+            <button type="button" class="button is-warning is-rounded">
+              Back to Folders List
+            </button>
+            <hr>
+            <button type="button" class="button is-danger is-rounded">
+              Log Out
+            </button>
+          </div>
+          </div>
+          </form>
+        </dialog>
+
+
+      </div>
+        </div>
+      </div>
+
+      
+    <div class="navbar-end">
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <div class="wrapperGrey">
+      
+      <div class="menuBottom">
+        <div class="columns is-desktop is-mobile">
+          <div class="column menuIcon animate__animated animate__flipInY"><a href="tasks.html"><img src="img/button_tasks.png" width="100px"></a></div>
+          <div class="column menuIcon animate__animated animate__flipInY"><a href="journals.html"><img src="img/button_journals.png" width="100px"></a></div>
+          <div class="column menuIcon animate__animated animate__flipInY"><a href="links.html"><img src="img/button_links.png" width="100px"></a></div>
+          <div class="column menuIcon animate__animated animate__flipInY"><a href="photos.html"><img src="img/button_photos.png" width="100px"></a></div>
+        </div>
+      </div>
+
+      <div class="homeContent">
+        <ul id="hexGrid">
+        <!-- START RESPONSIVE HEXAGON --> 
+          <li class="hex">
+            <div class="hexIn hexInTask">
+              <a class="hexLink" href="#">
+                <h1 class="entryTitle">Walk The Dog @ 10AM</h1>
+              </a>
+            </div>
+          </li>
+        <!-- END RESPONSIVE HEXAGON --> 
+        <!-- START RESPONSIVE HEXAGON --> 
+            <li class="hex">
+                <div class="hexIn hexInJournal">
+                  <a class="hexLink" href="#">
+                    <h1 class="entryTitle">Final Project Ideas</h1></a>
+                  </div>
+                </li>
+              <!-- END RESPONSIVE HEXAGON -->
+                <!-- START RESPONSIVE HEXAGON --> 
+                <li class="hex">
+                  <div class="hexIn hexInLink">
+                    <a class="hexLink" href="#">
+                      <h1 class="entryTitle">Bootcampspot Website</h1>
+
+                    </a>
+                  </div>
+                </li>
+              <!-- END RESPONSIVE HEXAGON --> 
+                <!-- START RESPONSIVE HEXAGON --> 
+                <li class="hex">
+                  <div class="hexIn hexInPhoto">
+
+                    </a>
+                  </div>
+                </li>
+              <!-- END RESPONSIVE HEXAGON --> 
+
+              
+
+
+
+      
+        </div>
+  </div>
+  </body>
+</html>
