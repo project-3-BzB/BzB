@@ -10,6 +10,7 @@ import Signup from './pages/Signup'
 import Home from './pages/Home'
 import Tasks from './pages/Tasks'
 import Journals from './pages/Journals'
+import Links from './pages/Links'
 
 function App() {
 
@@ -47,10 +48,10 @@ function App() {
               <GuardedRoute exact path={['/Journals']} >
                 <Journals />
               </GuardedRoute>
-              {/* <GuardedRoute exact path={['/Links']} >
+              <GuardedRoute exact path={['/Links']} >
                 <Links />
               </GuardedRoute>
-              <GuardedRoute exact path={['/Photos']} >
+              {/* <GuardedRoute exact path={['/Photos']} >
                 <Photos />
               </GuardedRoute> */}
             </Switch>

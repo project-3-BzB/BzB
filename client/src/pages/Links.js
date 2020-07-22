@@ -1,17 +1,17 @@
 import React from 'react'
-import './styles/Journals.css'
+import './styles/Links.css'
 import NavTiles from '../components/NavTiles';
 import FormHome from '../components/FormHome';
 import ProjectName from '../components/ProjectName';
-import TaskFolder from '../components/TaskFolder';
+import LinksFolder from '../components/LinksFolder';
 import {TileProvider} from '../utils/TileContext';
 
 
-function Journals() {
+function Links() {
 
   return (
     <div>
-      <div className="wrapperPurple">
+      <div className="wrapperRed">
 
         <div className="tile is-ancestor">
           <div className="tile is-parent is-vertical is-12">
@@ -26,12 +26,12 @@ function Journals() {
 
         <div className="columns is-ancestor is-mobile is-centered">
           <div className="column is-two-thirds ">
-            <TaskFolder />
-            <TaskFolder />
-            <TaskFolder />
-            <TaskFolder />
-            <TaskFolder />
-            <TaskFolder />
+            <LinksFolder />
+            <LinksFolder />
+            <LinksFolder />
+            <LinksFolder />
+            <LinksFolder />
+            <LinksFolder />
           </div>
         </div>
 
@@ -40,4 +40,4 @@ function Journals() {
   );
 }
 
-export default Journals;
+export default Links;
