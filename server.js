@@ -57,7 +57,7 @@ app.listen(PORT, () => {
 });
 
 //TESTING DATABASE AND ROUTES
-const axios = require("axios");
+// const axios = require("axios");
 
 //USERS-----------------------------------------------------------
 //---User Signup---

@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'bulma/css/bulma.css'
 import 'animate.css/animate.min.css'
+// import 'nes.css/css/nes.min.css'
 
 ReactDOM.render(
   <React.StrictMode>

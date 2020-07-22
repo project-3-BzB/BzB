@@ -7,7 +7,7 @@ const SignupNav = () => {
         <nav className='level'>
             <div className='level-item has-text-centered'>
                 <div>
-                    <a href='google.com'>Forgot Password?</a>
+                    <a href='#'>Forgot Password?</a>
                 </div>
             </div>
             <div className='level-item has-text-centered'>

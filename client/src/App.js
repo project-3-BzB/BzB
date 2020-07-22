@@ -2,49 +2,61 @@ import React from 'react'
 import { BrowserRouter as Router, Switch } from "react-router-dom"
 import { GuardProvider, GuardedRoute } from 'react-router-guards'
 
-import { getIsLoggedIn } from './utils/Auth'
+import {  requireLogin  } from './utils/Auth'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 // import Loading from './pages/Loading'
 // import NotFound from './pages/NotFound'
+import Notes from './pages/Notes'
 import Home from './pages/Home'
 import Tasks from './pages/Tasks'
+import { NoteProvider } from './utils/NoteContext'
+import { FoldersProvider } from './utils/FolderContext'
+import Folders from './pages/Folders'
+import Folder from './pages/Folder'
+import Projects from './pages/Projects'
 import Journals from './pages/Journals'
 import Links from './pages/Links'
 
 function App() {
 
-  const requireLogin = (to, from, next) => {
-    if (to.meta.auth) {
-      if (getIsLoggedIn()) {
-        next()
-      }
-      next.redirect('/login')
-    } else {
-      next()
-    }
-  }
 
 // guards={[requireLogin]} loading={Loading} error={NotFound}
 
   return (
     <Router>
-      <GuardProvider guards={[requireLogin]}>
+      <FoldersProvider>
+        <GuardProvider guards={[requireLogin]}>
           <div className="App">
             <Switch>
-              {/* <GuardedRoute exact path={['/', '/login']}>
+              <GuardedRoute exact path={['/', '/login']}>
                 <Login />
               </GuardedRoute>
               <GuardedRoute exact path={['/signup']}>
                 <Signup />
-              </GuardedRoute> */}
+              </GuardedRoute>
               {/* <GuardedRoute exact path={['/home']} meta={{auth: true}}> */}
-              <GuardedRoute exact path={['/home']} >
+              <GuardedRoute exact path={['/home']} meta={{auth: true}} >
                 <Home />
+              </GuardedRoute>
+              <GuardedRoute exact path ={['/projects']}>
+                <Projects />
               </GuardedRoute>
               <GuardedRoute exact path={['/Tasks']} >
                 <Tasks />
               </GuardedRoute>
+              <GuardedRoute exact path={['/notes']}>
+                <NoteProvider>
+                  <Notes />
+                </NoteProvider>
+              </GuardedRoute>
+              <GuardedRoute exact path={['/folder/:id']}>
+                <Folder />
+              </GuardedRoute>
+              {/* <GuardedRoute exact path={['/project/:id']}>
+                <Project />
+              </GuardedRoute> */}
+              {/* <GuardedRoute exact path={['/Journals']} >
               <GuardedRoute exact path={['/Journals']} >
                 <Journals />
               </GuardedRoute>
@@ -57,6 +69,8 @@ function App() {
             </Switch>
           </div>
       </GuardProvider>
+      </FoldersProvider>
+      
     </Router>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserProvider } from '../context/UserContext'
+import { UserProvider } from '../utils/UserContext'
 import LoginForm from '../components/login/LoginForm'
 import LoginNav from '../components/login/LoginNav'
 import Logo from '../components/Logo'
