@@ -27,7 +27,7 @@ router.get("/:_id", (req, res) => {
     .find(userId)
     .populate("foldersList")
     .then(user => {
-      // console.log(user)
+      console.log(user)
       res.json(user);
     })
     .catch(err => {
@@ -81,11 +81,6 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-// Logout Handler
-// router.all("/logout", function(req, res) {
-//   req.logout();
-//   res.redirect("/login");
-// });
 
 // Error Handler
 // router.use((err, req, res) => {

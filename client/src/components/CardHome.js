@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 // import '../pages/styles/Task.css'
 import Tiles from './Tiles';
 import {TileProvider} from '../utils/TileContext';
@@ -7,13 +7,14 @@ import { Cardcss, CardCenter } from '../style/Home'
 function CardHome() {
  
   return (
-    <div class="columns is-mobile is-centered cardContainer">
-      <div class="column is-half">
-        <Cardcss class="card">
-          <div class="card-content">
+    <div className="columns is-mobile is-centered">
+      <div className="column is-half">
+        <Cardcss className="card">
+          <div className="card-content">
             <CardCenter className="hero-body has-text-centered">
               <div className="Card">
-                <h4 className="title is-4">BzB</h4>
+                <h4 className="title">BzB</h4>
+                {/* <img className="animate__animated animate__flip" src={iconBee} width="200px" alt="beeIcon"/> */}
                 <TileProvider>
                   <Tiles />
                 </TileProvider>

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CardCenter = styled.div `
-  justify-content: cente
+  justify-content: center;
 `
 
 export const Cardcss = styled.div `
@@ -10,7 +10,9 @@ export const Cardcss = styled.div `
 `
 
 export const Score = styled.div `
-  margin: 40px
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
 `
 
 // export const MenuTop = styled.div `
@@ -25,17 +27,17 @@ export const Score = styled.div `
 //   z-index: 1;
 // `
 
-export const MenuBottom = styled.div `
-  // position: fixed;
-  bottom: 0;
-  width: 400px;
-  margin:0 auto;
-  padding: 20px;
-  background-color: #1a1a1ad2;
-  border-top-left-radius:20px ;
-  border-top-right-radius:20px ;
-  z-index: 1;
-`
+// export const MenuBottom = styled.div `
+//   // position: fixed;
+//   bottom: 0;
+//   width: 400px;
+//   margin:0 auto;
+//   padding: 20px;
+//   background-color: #1a1a1ad2;
+//   border-top-left-radius:20px ;
+//   border-top-right-radius:20px ;
+//   z-index: 1;
+// `
 // // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_zoom
 export const ContainerTile = styled.div `
 .container {
@@ -71,12 +73,3 @@ export const Text = styled.div `
   transform: translate(-50%, -50%);
   text-align: center;
 `
-
-// export const HomeContent = styled.div `
-//   display: block;
-//   width: 80%;
-//   background-color: grey;
-//   padding: 20px;
-//   margin-top: 150px;
-//   height: 800px;
-// `

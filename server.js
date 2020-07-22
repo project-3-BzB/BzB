@@ -78,7 +78,7 @@ const axios = require("axios");
 //     // console.log(err)
 // });
 
-//---User Login---
+// ---User Login---
 // axios.post("http://localhost:5000/api/user/login", {
 //     username: "again",
 //     password: "12345"
@@ -89,6 +89,16 @@ const axios = require("axios");
 // .catch(function(err) {
 //     // console.log(err)
 // });
+
+//---User Logout---
+// axios.get("http://localhost:5000/api/logout")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
 
 //---Get User---
 // axios.get("http://localhost:5000/api/user/[user._id]")
@@ -101,7 +111,7 @@ const axios = require("axios");
 
 //FOLDERS---------------------------------------------------------
 //---Create Folder---
-// axios.post("http://localhost:5000/api/user/5f151e208013d9550845af33/new_folder", {
+// axios.post("http://localhost:5000/api/user/[user_id]/new_folder", {
 //     name: "Test"
 // })
 // .then(function(res) {
@@ -132,7 +142,7 @@ const axios = require("axios");
 // });
 
 //---Delete Folder---
-// axios.delete("http://localhost:5000/api/folder/[folder._id]")
+// axios.delete("http://localhost:5000/api/folder/delete/[user._id]/[folder._id]")
 // .then(function(res) {
 //     // console.log(res)
 // })
@@ -142,7 +152,7 @@ const axios = require("axios");
 
 //NOTES-----------------------------------------------------------
 //---Create Note---
-// axios.post("http://localhost:5000/api/folder/5f153359ee5fee4ebcf1a130/new_note", {
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_note", {
 //     title: "Test",
 //     content: "Hello world"
 // })
@@ -154,7 +164,7 @@ const axios = require("axios");
 // });
 
 //---Get Note---
-// axios.get("http://localhost:5000/api/note/5f1533856d6c5647b879f739")
+// axios.get("http://localhost:5000/api/note/[note._id]")
 // .then(function(res) {
 //     // console.log(res)
 // })
@@ -163,7 +173,7 @@ const axios = require("axios");
 // });
 
 //---Update Note---
-// axios.put("http://localhost:5000/api/note/5f1533856d6c5647b879f739", {
+// axios.put("http://localhost:5000/api/note/[note._id]", {
 //     title: "Update",
 //     content: "Testing"
 // })
@@ -175,7 +185,7 @@ const axios = require("axios");
 // });
 
 //---Delete Note---
-// axios.delete("http://localhost:5000/api/note/5f1533856d6c5647b879f739")
+// axios.delete("http://localhost:5000/api/note/delete/[folder._id]/[user._id]")
 // .then(function(res) {
 //     // console.log(res)
 // })
@@ -183,9 +193,148 @@ const axios = require("axios");
 //     // console.log(err)
 // });
 
+//TASKS----------------------------------------------------------------
+// ---Create Task---
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_task", {
+//     title: "Test",
+//     content: "Hello world",
+//     year: "2020",
+//     month: "1",
+//     day: "1",
+//     hour: "14",
+//     minute: "30",
+//     isComplete: false
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
 
+//---Get Task---
+// axios.get("http://localhost:5000/api/task/[task._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
 
-//MOCK USERS------------------------------------------------------
+//---Update Task---
+// axios.put("http://localhost:5000/api/task/[task._id]", {
+//     title: "Update",
+//     content: "Testing",
+//     year: "2025",
+//     month: "5",
+//     day: "30",
+//     hour: "12",
+//     minute: "30",
+//     isComplete: true
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Delete Task---
+// axios.delete("http://localhost:5000/api/task/delete/[folder._id]/[task._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//IMAGES----------------------------------------------------------------
+// ---Create Image---
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_image", {
+//     title: "Test",
+//     content: "Hello world"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Get Image---
+// axios.get("http://localhost:5000/api/image/[image._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Update Image---
+// axios.put("http://localhost:5000/api/image/[image._id]", {
+//     title: "Update",
+//     content: "Testing"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Delete Image---
+// axios.delete("http://localhost:5000/api/image/delete/[folder._id]/[image._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//LINKS-----------------------------------------------------------
+// ---Create Link---
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_link", {
+//     title: "Test",
+//     content: "Hello world"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Get Link---
+// axios.get("http://localhost:5000/api/link/[link._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Update Link---
+// axios.put("http://localhost:5000/api/link/[link._id]", {
+//     title: "Update",
+//     content: "Testing"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Delete Link---
+// axios.delete("http://localhost:5000/api/link/delete/[folder._id]/[link._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//OTHER MOCK USERS------------------------------------------------------
 //---USER 2 Signup---
 // axios.post("http://localhost:5000/api/user/signup", {
 //     email: "123@456.com",

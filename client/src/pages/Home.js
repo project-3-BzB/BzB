@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/Home.css'
 import Progress from '../components/Progress';
 import FormHome from '../components/FormHome';
+import ProjectName from '../components/ProjectName';
 import CardHome from '../components/CardHome';
 
 function Home() {
@@ -15,7 +16,8 @@ function Home() {
           </div>
         </div>
 
-        <FormHome />
+        {/* <FormHome /> */}
+        <ProjectName />
         <CardHome />
    
       </div>

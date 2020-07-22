@@ -3,12 +3,11 @@ import '../pages/styles/Home.css'
 import { Link, useLocation } from "react-router-dom";
 import { ContainerTile, Overlay, Text } from '../style/Home'
 
-const Tile = ({ image, alt, page, color }) => {
+const NavTile = ({ image, alt, page, color }) => {
 
   const location = useLocation();
 
       function List() {
-        console.log (page)
         window.location.assign(page)
       return
     }
@@ -17,7 +16,7 @@ const Tile = ({ image, alt, page, color }) => {
     <ContainerTile className="container">
       <div className="column">
       <Link onClick={List}>
-        <img className="animate__animated animate__flip" src={image} width="232px" alt={alt}/>
+        <img className="animate__animated animate__flip" src={image} width="96px" alt={alt}/>
         <Overlay className="overlay" color={color}>
           <Text className="text">{alt}</Text>
         </Overlay>
@@ -27,4 +26,4 @@ const Tile = ({ image, alt, page, color }) => {
   )
 }
 
-export default Tile; 
+export default NavTile; 
