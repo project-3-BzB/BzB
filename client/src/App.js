@@ -42,10 +42,10 @@ function App() {
               <GuardedRoute exact path ={['/projects']}>
                 <Projects />
               </GuardedRoute>
-              <GuardedRoute exact path={['/Tasks']} >
+              <GuardedRoute exact path={['/tasks/:id']} >
                 <Tasks />
               </GuardedRoute>
-              <GuardedRoute exact path={['/notes']}>
+              <GuardedRoute exact path={['/notes/:id']}>
                 {/* <NoteProvider> */}
                   <Notes />
                 {/* </NoteProvider> */}
@@ -53,7 +53,7 @@ function App() {
               <GuardedRoute exact path={['/folder/:id']}>
                 <Folder />
               </GuardedRoute>
-              <GuardedRoute exact path={['/links']}>
+              <GuardedRoute exact path={['/links/:id']}>
                 <Links />
               </GuardedRoute>
             </Switch>
