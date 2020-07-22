@@ -46,26 +46,16 @@ function App() {
                 <Tasks />
               </GuardedRoute>
               <GuardedRoute exact path={['/notes']}>
-                <NoteProvider>
+                {/* <NoteProvider> */}
                   <Notes />
-                </NoteProvider>
+                {/* </NoteProvider> */}
               </GuardedRoute>
               <GuardedRoute exact path={['/folder/:id']}>
                 <Folder />
               </GuardedRoute>
-              {/* <GuardedRoute exact path={['/project/:id']}>
-                <Project />
-              </GuardedRoute> */}
-              {/* <GuardedRoute exact path={['/Journals']} >
-              <GuardedRoute exact path={['/Journals']} >
-                <Journals />
-              </GuardedRoute>
-              <GuardedRoute exact path={['/Links']} >
+              <GuardedRoute exact path={['/links']}>
                 <Links />
               </GuardedRoute>
-              {/* <GuardedRoute exact path={['/Photos']} >
-                <Photos />
-              </GuardedRoute> */}
             </Switch>
           </div>
       </GuardProvider>
