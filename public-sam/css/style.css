@@ -5,12 +5,25 @@
 
   /* LOGO CUSTOMIZATIONS */
 .logo {
-  height: 40px;
+
   margin: 10px;
   }
 
+  .navlogo {
+    height: 40px;
+    margin: 10px;
+    }
+
   .fas {
     margin-right: 5px;
+  }
+
+
+  .modalContent {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 .folderTitle {
@@ -32,11 +45,10 @@
   }
 
 
-  .rightAlign {
-    position: absolute;
-    right: 0px;
-  }
-  
+.notification:hover {
+  background-color: #c0e999;
+}
+
   :root {
     --shadowDark: #D9DDE6;
     --background: #E4E9F2;
@@ -78,6 +90,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    
   }
   /* BACKGROUND COLOR: BLUE */
   .wrapperBlue {
