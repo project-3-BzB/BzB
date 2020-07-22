@@ -1,11 +1,15 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { setIsLoggedOut } from '../utils/Auth'
 import API from '../utils/API'
 
 const LogoutBtn = () => {
+  const history = useHistory()
   const logout = () => {
     setIsLoggedOut()
-    API.post('api/user/logout')
+    API.post('api/user/logout').then(() =>
+      history.push('/login')
+    ) 
   }
 
   const handleClick = e => {
@@ -14,7 +18,7 @@ const LogoutBtn = () => {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button className='button is-small is-rounded is-danger is-light' onClick={handleClick}>
       Log Out
     </button>
   )

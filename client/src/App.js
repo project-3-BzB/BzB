@@ -46,9 +46,9 @@ function App() {
                 <Tasks />
               </GuardedRoute>
               <GuardedRoute exact path={['/notes']}>
-                <NoteProvider>
+                {/* <NoteProvider> */}
                   <Notes />
-                </NoteProvider>
+                {/* </NoteProvider> */}
               </GuardedRoute>
               <GuardedRoute exact path={['/folder/:id']}>
                 <Folder />

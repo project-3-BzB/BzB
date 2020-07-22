@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FoldersContext } from '../utils/FolderContext'
 import API from '../utils/API'
 import { Link } from 'react-router-dom'
-import { ul, li, div } from '../style/Folders'
+import { ul, li, div } from '../style/Folder'
 import FormInput from '../components/FormInput'
 import { getIsLoggedIn } from '../utils/Auth'
 
