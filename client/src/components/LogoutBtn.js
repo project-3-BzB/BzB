@@ -7,9 +7,9 @@ const LogoutBtn = () => {
   const history = useHistory()
   const logout = () => {
     setIsLoggedOut()
-    API.post('api/user/logout').then(() =>
+
       history.push('/login')
-    ) 
+
   }
 
   const handleClick = e => {

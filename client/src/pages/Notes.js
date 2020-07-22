@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import API from '../utils/API'
 import { NoteContext, NoteProvider } from '../utils/NoteContext'
 import Wrapper from '../style/Wrapper'
@@ -21,9 +21,10 @@ const Notes = props => {
   const [field, setField] = useState({})
   // const userId = getIsLoggedIn()
   // const userId = getIsLoggedIn()
+  const history = useHistory()
 
   const {id} = useParams()
-  console.log(id)
+  // console.log(id)
 
   useEffect(() => {
     if(id) {
@@ -88,10 +89,13 @@ const Notes = props => {
     createNote()
   }
 
+  function back() {
+    history.push('/folder/' + id)
+  }
 
   return (
     <>
-    <ProjectNav img={logo} />
+    <ProjectNav img={logo} go={back}/>
       <Wrapper img={img}>
         {/* <ProjectsContent> */}
           {/* <div className='columns'> */}
@@ -99,12 +103,12 @@ const Notes = props => {
               <input className="input mb-3"
               type="text" placeholder="Note Title" 
               name='title' onChange={handleChange}
-              />
+              /> 
               <textarea className="textarea" 
               placeholder="Hi! I'm your newest, FUNNEST note ;p" name='content'
               onChange={handleChange}>
               </textarea>
-              <button className='button' onClick={handleCreate}>Create Note</button>
+              <button className='button is-warning is-light mt-4' onClick={handleCreate}>Create Note</button>
             </div>
 
             {/*SAVED NOTES LIST */}
