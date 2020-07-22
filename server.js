@@ -27,7 +27,6 @@ app.use(cors({
     optionsSuccessStatus: 200,
   }))
 
-
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
@@ -58,7 +57,7 @@ app.listen(PORT, () => {
 });
 
 //TESTING DATABASE AND ROUTES
-const axios = require("axios");
+// const axios = require("axios");
 
 //USERS-----------------------------------------------------------
 //---User Signup---
