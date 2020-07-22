@@ -13,7 +13,7 @@ const ProjectNav = props => {
       </div>
       <div className='navbar-brand'>
         <a className='navbar-item'>
-          <img src={props.img} />
+          <img src={props.img} onClick={props.go}/>
         </a>
       </div>
       
@@ -30,7 +30,7 @@ const ProjectNav = props => {
       </div>
       <div className='navbar-end'>
         <div className='navbar-item'>
-          <input className='input is-rounded' 
+          <input className={pathname != `/folder/${props.id}` ? 'input is-rounded' : 'is-hidden'} 
             type='text' 
             placeholder='Search'
             onChange={props.onChange}

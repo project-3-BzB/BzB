@@ -22,23 +22,29 @@ const Notes = props => {
   // const userId = getIsLoggedIn()
   // const userId = getIsLoggedIn()
 
-  // const {id} = useParams()
-  // console.log(id)
+  const {id} = useParams()
+  console.log(id)
 
   useEffect(() => {
-    loadContents()
+    if(id) {
+      loadContents()
+    }
+    
   }, [])
 
 
   function loadContents() {
-    API.get(`/api/folder/5f180fcb6b3aea5410a21577`).then(res => {
+    API.get(`/api/folder/${id}`).then(res => {
+      if(res.data){
+        setContents(res.data)
+      }
       console.log(res.data)
-      setContents(res.data)
+      
     })
   }
 
   function createNote() {
-    API.post('/api/folder/5f180fcb6b3aea5410a21577/new_note', {
+    API.post(`/api/folder/${id}/new_note`, {
       title: field.title,
       content: field.content
     }).then(res=> {
@@ -47,29 +53,29 @@ const Notes = props => {
     })
   }
 
-  function updateNote(id) {
-    API.put(`/api/note/${id}`, {content: field.content})
+  function updateNote(nId) {
+    API.put(`/api/note/${nId}`, {content: field.content})
     .then(res => {
       console.log(res)
       loadContents()
     })
   }
 
-  function deleteNote(id) {
-    API.delete(`/api/note/delete/5f180fcb6b3aea5410a21577/${id}`)
+  function deleteNote(nId) {
+    API.delete(`/api/note/delete/${id}/${nId}`)
     .then(res => {
       console.log(res)
       loadContents()
     })
   }
 
-  const handleUpdate = id => {
-    document.getElementById(id).setAttribute('class', 'is-hidden')
-    updateNote(id)
+  const handleUpdate = dId => {
+    document.getElementById(dId).setAttribute('class', 'is-hidden')
+    updateNote(dId)
   }
 
-  const handleDelete = id => {
-    deleteNote(id)
+  const handleDelete = nId => {
+    deleteNote(nId)
   }
 
   const handleChange = e => {
@@ -105,7 +111,7 @@ const Notes = props => {
 
             <div className='column is-two-thirds'>
               {contents.notesList ? contents.notesList.map(note=> (
-                  <div className='notification animate__animated animate__fadeInUpBig'>
+                  <div key={note._id} className='notification animate__animated animate__fadeInUpBig'>
                     <button name={note._id} className='delete'
                       onClick={()=> {handleDelete(note._id)}}
                       />

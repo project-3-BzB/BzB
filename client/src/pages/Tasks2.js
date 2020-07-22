@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import API from '../utils/API'
 import { NoteContext, NoteProvider } from '../utils/NoteContext'
 import Wrapper from '../style/Wrapper'
-import img from '../img/bg_red.png'
+import img from '../img/bg_purple.png'
 import bee from '../img/icon_bee.png'
 import note from '../img/button_journals.png'
 import task from '../img/button_tasks.png'
@@ -15,14 +15,14 @@ import logo from '../img/logo_header.png'
 import { Icon } from '../style/Projects'
 import { getIsLoggedIn } from '../utils/Auth'
 
-const Links = props => {
-  // const [links, setlinks] = useContext(NoteContext)
+const Tasks = props => {
+  // const [notes, setNotes] = useContext(NoteContext)
   const [contents, setContents] = useState({})
   const [field, setField] = useState({})
   // const userId = getIsLoggedIn()
   // const userId = getIsLoggedIn()
 
-  const {id} = useParams()
+  // const {id} = useParams()
   // console.log(id)
 
   useEffect(() => {
@@ -31,14 +31,14 @@ const Links = props => {
 
 
   function loadContents() {
-    API.get(`/api/folder/${id}`).then(res => {
+    API.get(`/api/folder/5f180fcb6b3aea5410a21577`).then(res => {
       console.log(res.data)
       setContents(res.data)
     })
   }
 
-  function createLink() {
-    API.post(`/api/folder/${id}/new_link`, {
+  function createNote() {
+    API.post('/api/folder/5f180fcb6b3aea5410a21577/new_note', {
       title: field.title,
       content: field.content
     }).then(res=> {
@@ -47,18 +47,29 @@ const Links = props => {
     })
   }
 
-
-  function deleteLink(dId) {
-    API.delete(`/api/link/delete/${id}/${dId}`)
+  function updateNote(id) {
+    API.put(`/api/note/${id}`, {content: field.content})
     .then(res => {
       console.log(res)
       loadContents()
     })
   }
 
+  function deleteNote(id) {
+    API.delete(`/api/note/delete/5f180fcb6b3aea5410a21577/${id}`)
+    .then(res => {
+      console.log(res)
+      loadContents()
+    })
+  }
 
-  const handleDelete = dId => {
-    deleteLink(dId)
+  const handleUpdate = id => {
+    document.getElementById(id).setAttribute('class', 'is-hidden')
+    updateNote(id)
+  }
+
+  const handleDelete = id => {
+    deleteNote(id)
   }
 
   const handleChange = e => {
@@ -68,7 +79,7 @@ const Links = props => {
 
   const handleCreate = e => {
     e.preventDefault()
-    createLink()
+    createNote()
   }
 
 
@@ -80,33 +91,40 @@ const Links = props => {
           {/* <div className='columns'> */}
             <div className='column is-one-third'>
               <input className="input mb-3"
-              type="text" placeholder="NSFW" 
+              type="text" placeholder="Note Title" 
               name='title' onChange={handleChange}
               />
-              <input className="input" 
-              placeholder='big sexy link ------- (paste the full thing)' name='content'
+              <textarea className="textarea" 
+              placeholder="Hi! I'm your newest, FUNNEST note ;p" name='content'
               onChange={handleChange}>
-              </input>
-              <button className='button' onClick={handleCreate}>Add Link</button>
+              </textarea>
+              <button className='button' onClick={handleCreate}>Create Note</button>
             </div>
 
-            {/*SAVED links LIST */}
+            {/*SAVED NOTES LIST */}
 
             <div className='column is-two-thirds'>
-              {contents.linksList ? contents.linksList.map(link=> (
+              {contents.notesList ? contents.notesList.map(note=> (
                   <div className='notification animate__animated animate__fadeInUpBig'>
-                    <button name={link._id} className='delete'
-                      onClick={()=> {handleDelete(link._id)}}
+                    <button name={note._id} className='delete'
+                      onClick={()=> {handleDelete(note._id)}}
                       />
                   <article className='media'>
                     <div className='media-content'>
                       <div className='content'>
-                        <h4 className='title is-size-3 is-capitalized'>{link.title}</h4>
-                        <a href={`${link.content}`}
-                          target={'_blank'} rel='noopener noreferrer' className='is-size-5'> 
-                          {link.content}
-                        </a>
-                        <p className='subtitle is-6'>Created {link.createdAt} </p>
+                        <Link to={`folder/`} style={{textDecoration: 'none'}}>
+                          <h4 className='title is-size-5 is-capitalized'>{note.title}</h4>
+                        </Link>
+                        <textarea className="textarea" rows='1' name='content' defaultValue={note.content}
+                            onChange={e => {
+                            e.preventDefault()
+                            const {name, value} = e.target
+                            document.getElementById(note._id).setAttribute('class', 'button')
+                            setField({...field, [name]: value})}}>                            
+                        </textarea>
+                        <button className='button is-hidden' id={note._id} 
+                        onClick={()=>{handleUpdate(note._id)}}>Save</button>
+                        <p className='subtitle'>Created {note.createdAt} </p>
                       </div>
                     </div>
                   </article>
@@ -120,5 +138,5 @@ const Links = props => {
   )
 }
 
-export default Links
+export default Tasks
 
