@@ -27,7 +27,7 @@ router.get("/:_id", (req, res) => {
     .find(userId)
     .populate("foldersList")
     .then(user => {
-      // console.log(user)
+      console.log(user)
       res.json(user);
     })
     .catch(err => {

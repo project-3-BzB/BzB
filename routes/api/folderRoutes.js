@@ -14,8 +14,19 @@ router.get("/:_id", (req, res) => {
     .populate("imagesList")
     .populate("linksList")
     .then(folder => {
-      // console.log(folder)
-      res.json(folder);
+      let formattedFolder = {
+        name: folder.name,
+        createdAt: folder.createdAt.toLocaleString(),
+        updatedAt: folder.updatedAt,
+        notesList: folder.notesList,
+        tasksList: folder.tasksList,
+        imagesList: folder.imagesList,
+        linksList: folder.linksList,
+        _id: folder._id,
+        __v: folder.__v
+      };
+      // console.log(formattedFolder)
+      res.json(formattedFolder);
     })
     .catch(err => {
       console.log("GET FOLDER ERROR: ", err);
