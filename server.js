@@ -27,16 +27,12 @@ app.use(cors({
     optionsSuccessStatus: 200,
   }))
 
-<<<<<<< HEAD
-//sync to mongoDB using mongoose----------------------------------
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bzbbackend", {
-=======
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 //sync to mongoDB using mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bzb", {
->>>>>>> 7e0a5a21b0b49314b2dacceb63b7ebf076ff4350
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bzbbackend", {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
