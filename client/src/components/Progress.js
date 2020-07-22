@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import '../pages/styles/Home.css'
 import { Score, Login, HomeContent } from '../style/Home'
 
