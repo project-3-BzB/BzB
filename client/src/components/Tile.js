@@ -8,6 +8,7 @@ const Tile = ({ image, alt, page, color }) => {
   const location = useLocation();
 
       function List() {
+        console.log (page)
         window.location.assign(page)
       return
     }
