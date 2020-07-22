@@ -101,18 +101,18 @@ const Projects = () => {
       <ProjectsWrapper img={img}>
         <ProjectsContent>
         {folders.foldersList ? (
-        <ul>
+        <>
           {folders.foldersList.map(folder => (
             <Project 
               click={handleDelete}
               title={folder.name.toUpperCase()}
-              link={`/project/${folder._id}`}
+              link={folder._id}
               id={folder._id}
               date={folder.createdAt}
               key={folder._id}
               />
           ))}
-        </ul>
+        </>
       ) : <h2>No Folders Found</h2> }
         </ProjectsContent>
       </ProjectsWrapper>

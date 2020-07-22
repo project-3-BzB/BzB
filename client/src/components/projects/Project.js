@@ -14,7 +14,7 @@ const Project = props => {
         </div>
         <div className='media-content'>
           <div className='content'>
-            <Link to={props.link} style={{textDecoration: 'none'}}>
+            <Link to={`folder/${props.link}`} style={{textDecoration: 'none'}}>
               <h4 className='title is-5'>{props.title}</h4>
             </Link>
             <p className='subtitle is-6'>Created {props.date}</p>

@@ -30,7 +30,7 @@ const LoginBtn = () => {
       // setFolders({...folders, userId: res.data._id})
       setUser({})
       setIsLoggedIn(res.data._id)
-      history.push('/folders')
+      history.push('/projects')
     } catch (err) {
         console.log(err)
     }

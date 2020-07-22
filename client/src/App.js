@@ -16,6 +16,7 @@ import Folders from './pages/Folders'
 import Folder from './pages/Folder'
 import Projects from './pages/Projects'
 import Journals from './pages/Journals'
+import Project from './pages/Project'
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
               <GuardedRoute exact path={['/home']} meta={{auth: true}} >
                 <Home />
               </GuardedRoute>
-              <GuardedRoute exact path ='/projects'>
+              <GuardedRoute exact path ={['/projects']}>
                 <Projects />
               </GuardedRoute>
               <GuardedRoute exact path={['/Tasks']} >
@@ -49,12 +50,12 @@ function App() {
                   <Notes />
                 </NoteProvider>
               </GuardedRoute>
-              {/* <GuardedRoute exact path={['/folders']}>
-                <Folders />
-              </GuardedRoute> */}
-              <GuardedRoute exact path='/project/:id'>
+              <GuardedRoute exact path={['/folder/:id']}>
                 <Folder />
               </GuardedRoute>
+              {/* <GuardedRoute exact path={['/project/:id']}>
+                <Project />
+              </GuardedRoute> */}
               {/* <GuardedRoute exact path={['/Journals']} >
               <GuardedRoute exact path={['/Journals']} >
                 <Journals />
