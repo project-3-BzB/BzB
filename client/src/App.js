@@ -14,7 +14,8 @@ import { NoteProvider } from './utils/NoteContext'
 import { FoldersProvider } from './utils/FolderContext'
 import Folders from './pages/Folders'
 import Folder from './pages/Folder'
-console.log('refresh')
+import Projects from './pages/Projects'
+
 function App() {
 
 
@@ -36,6 +37,9 @@ function App() {
               <GuardedRoute exact path={['/home']} meta={{auth: true}} >
                 <Home />
               </GuardedRoute>
+              <GuardedRoute exact path ='/projects'>
+                <Projects />
+              </GuardedRoute>
               <GuardedRoute exact path={['/Tasks']} >
                 <Tasks />
               </GuardedRoute>
@@ -44,10 +48,10 @@ function App() {
                   <Notes />
                 </NoteProvider>
               </GuardedRoute>
-              <GuardedRoute exact path={['/folders']}>
+              {/* <GuardedRoute exact path={['/folders']}>
                 <Folders />
-              </GuardedRoute>
-              <GuardedRoute exact path='/folder/:id'>
+              </GuardedRoute> */}
+              <GuardedRoute exact path='/project/:id'>
                 <Folder />
               </GuardedRoute>
               {/* <GuardedRoute exact path={['/Journals']} >

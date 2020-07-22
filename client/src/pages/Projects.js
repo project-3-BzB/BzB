@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react'
 import { FoldersContext } from '../utils/FolderContext'
 import API from '../utils/API'
@@ -5,27 +6,35 @@ import { Link } from 'react-router-dom'
 import { ul, li, div } from '../style/Folders'
 import FormInput from '../components/FormInput'
 import { getIsLoggedIn } from '../utils/Auth'
+import { ProjectsWrapper, ProjectsContent } from '../style/Projects'
+import ProjectNav from '../components/projects/ProjectNav'
+import img from '../img/bg_yellow.png'
+import logo from '../img/logo_header.png'
+import Project from '../components/projects/Project'
+import ProjectModal from '../components/projects/ProjectModal'
 
-const Folders = () => {
+const Projects = () => {
   const [folders, setFolders] = useContext(FoldersContext)
   const [newFolder, setNewFolder] = useState('')
   const [modalActive, setModalActive] = useState(false)
-  const [search, setSearch] = useState('')
   const id = getIsLoggedIn()
-
+  // const [search, setSearch] = useState('')
+  // const [toDelete, setToDelete] = useState('')
   
   useEffect(() => {
     loadFolders()
   }, [])
 
   // useEffect(() => {
-  //   if(search) {}
+  //   if(search) {
+      
+  //   }
   // })
 
   function loadFolders() {
     API.get(`api/user/${id}`)
     .then(res => {
-      console.log(res.data[0])
+      // console.log(res.data[0])
       if(res.data) {
         setFolders({...folders, foldersList: res.data[0].foldersList})
       }
@@ -43,15 +52,13 @@ const Folders = () => {
     }
   }
 
-  // const confirmDelete = () => {
-
-  // }
+  // const confirmDelete = e => {}
 
   const createFolder = async () => {
     try {
-      const res = await API.post(`api/user/${id}/new_folder`, {name: newFolder})
-      console.log(res.data.foldersList)
-      // loadFolders()
+      await API.post(`api/user/${id}/new_folder`, {name: newFolder})
+      // console.log(res)
+      loadFolders()
       setNewFolder('')
     }
     catch (err) {
@@ -87,51 +94,36 @@ const Folders = () => {
     deleteFolder(name)
   }
 
-  return (
 
-    <div>
-      {/* <FormInput name='search' placeholder='search projects' value={search} onChange={handleSearch}/> */}
-      {folders.foldersList ? (
+  return (
+    <>
+      <ProjectNav img={logo} onClick={handleModal}/>
+      <ProjectsWrapper img={img}>
+        <ProjectsContent>
+        {folders.foldersList ? (
         <ul>
           {folders.foldersList.map(folder => (
-            <li key={folder._id}>
-              <div>
-                <Link to={`/folder/${folder._id}`}>
-                  <h2>{folder.name}</h2>
-                </Link>
-                <button name={folder._id} onClick={handleDelete}>Delete</button>
-              </div>
-            </li>
+            <Project 
+              click={handleDelete}
+              title={folder.name.toUpperCase()}
+              link={`/project/${folder._id}`}
+              id={folder._id}
+              date={folder.createdAt}
+              key={folder._id}
+              />
           ))}
         </ul>
       ) : <h2>No Folders Found</h2> }
-
-      <button onClick={handleModal}>New Folder</button>
-
-      <div className={modalActive ? 'modal is-active' : 'modal'}>
-        <div className="modal-background"></div>
-        <div className="modal-card">
-          <header className="modal-card-head">
-            <p className="modal-card-title">Modal title</p>
-            <button className="delete" aria-label="close" onClick={handleModal}></button>
-          </header>
-          <section className="modal-card-body">
-            <FormInput
-              value={newFolder}
-              name='name'
-              type='name'
-              placeholder='New Folder Name'
-              onChange={handleChange}
-            />
-          </section>
-          <footer className="modal-card-foot">
-            <button className="button is-success" onClick={handleCreate}>Create Folder</button>
-            <button className="button" onClick={handleModal}>Cancel</button>
-          </footer>
-        </div>
-      </div>
-    </div>
+        </ProjectsContent>
+      </ProjectsWrapper>
+      <ProjectModal 
+        modal={handleModal}
+        change={handleChange}
+        create={handleCreate}
+        active={modalActive}
+      />
+    </>
   )
 }
 
-export default Folders
+export default Projects
