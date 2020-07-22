@@ -16,7 +16,7 @@ import Folders from './pages/Folders'
 import Folder from './pages/Folder'
 import Projects from './pages/Projects'
 import Journals from './pages/Journals'
-import Project from './pages/Project'
+import Links from './pages/Links'
 
 function App() {
 
@@ -60,10 +60,10 @@ function App() {
               <GuardedRoute exact path={['/Journals']} >
                 <Journals />
               </GuardedRoute>
-              {/* <GuardedRoute exact path={['/Links']} >
+              <GuardedRoute exact path={['/Links']} >
                 <Links />
               </GuardedRoute>
-              <GuardedRoute exact path={['/Photos']} >
+              {/* <GuardedRoute exact path={['/Photos']} >
                 <Photos />
               </GuardedRoute> */}
             </Switch>

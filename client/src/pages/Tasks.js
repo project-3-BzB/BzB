@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/Tasks.css'
 import NavTiles from '../components/NavTiles';
 import FormHome from '../components/FormHome';
+import ProjectName from '../components/ProjectName';
 import TaskFolder from '../components/TaskFolder';
 import {TileProvider} from '../utils/TileContext';
 
@@ -19,10 +20,10 @@ function Tasks() {
             </TileProvider>
           </div>
         </div>
-
-        <FormHome />
-
-
+    
+        {/* <FormHome /> */}
+       <ProjectName />
+      
         <div className="columns is-ancestor is-mobile is-centered">
           <div className="column is-two-thirds ">
             <TaskFolder />
