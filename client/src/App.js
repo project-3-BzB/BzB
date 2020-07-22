@@ -9,7 +9,7 @@ import Signup from './pages/Signup'
 // import NotFound from './pages/NotFound'
 import Notes from './pages/Notes'
 import Home from './pages/Home'
-import Tasks from './pages/Tasks'
+import Tasks2 from './pages/Tasks2'
 import { NoteProvider } from './utils/NoteContext'
 import { FoldersProvider } from './utils/FolderContext'
 import Folders from './pages/Folders'
@@ -36,24 +36,24 @@ function App() {
                 <Signup />
               </GuardedRoute>
               {/* <GuardedRoute exact path={['/home']} meta={{auth: true}}> */}
-              <GuardedRoute exact path={['/home']} meta={{auth: true}} >
+              {/* <GuardedRoute exact path={['/home']} meta={{auth: true}} >
                 <Home />
-              </GuardedRoute>
-              <GuardedRoute exact path ={['/projects']}>
+              </GuardedRoute> */}
+              <GuardedRoute exact path ={['/projects']} meta={{auth: true}}>
                 <Projects />
               </GuardedRoute>
-              <GuardedRoute exact path={['/tasks/:id']} >
-                <Tasks />
+              <GuardedRoute exact path={['/tasks/:id']} meta={{auth: true}}>
+                <Tasks2 />
               </GuardedRoute>
-              <GuardedRoute exact path={['/notes/:id']}>
+              <GuardedRoute exact path={['/notes/:id']} meta={{auth: true}}>
                 {/* <NoteProvider> */}
                   <Notes />
                 {/* </NoteProvider> */}
               </GuardedRoute>
-              <GuardedRoute exact path={['/folder/:id']}>
+              <GuardedRoute exact path={['/folder/:id']} meta={{auth: true}}>
                 <Folder />
               </GuardedRoute>
-              <GuardedRoute exact path={['/links/:id']}>
+              <GuardedRoute exact path={['/links/:id']} meta={{auth: true}}>
                 <Links />
               </GuardedRoute>
             </Switch>

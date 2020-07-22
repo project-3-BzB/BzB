@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import API from '../utils/API'
 import { NoteContext, NoteProvider } from '../utils/NoteContext'
 import Wrapper from '../style/Wrapper'
@@ -21,6 +21,7 @@ const Links = props => {
   const [field, setField] = useState({})
   // const userId = getIsLoggedIn()
   // const userId = getIsLoggedIn()
+  const history = useHistory()
 
   const {id} = useParams()
   // console.log(id)
@@ -71,10 +72,13 @@ const Links = props => {
     createLink()
   }
 
+  function back() {
+    history.push('/folder/' + id)
+  }
 
   return (
     <>
-    <ProjectNav img={logo} />
+    <ProjectNav img={logo} go={back}/>
       <Wrapper img={img}>
         {/* <ProjectsContent> */}
           {/* <div className='columns'> */}
@@ -87,14 +91,14 @@ const Links = props => {
               placeholder='big sexy link ------- (paste the full thing)' name='content'
               onChange={handleChange}>
               </input>
-              <button className='button' onClick={handleCreate}>Add Link</button>
+              <button className='button mt-4 is-light is-warning' onClick={handleCreate}>Add Link</button>
             </div>
 
             {/*SAVED links LIST */}
 
             <div className='column is-two-thirds'>
               {contents.linksList ? contents.linksList.map(link=> (
-                  <div className='notification animate__animated animate__fadeInUpBig'>
+                  <div key={link._id} className='notification animate__animated animate__fadeInUpBig'>
                     <button name={link._id} className='delete'
                       onClick={()=> {handleDelete(link._id)}}
                       />

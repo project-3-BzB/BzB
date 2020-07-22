@@ -1,16 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 // import './styles/Home.css'
-import Progress from '../components/Progress';
-import FormHome from '../components/FormHome';
-import Tiles from '../components/Tiles';
-import {TileProvider} from '../utils/TileContext';
-import { HeroBody, Login, HomeContent, ContainerTile, Overlay, Text } from '../style/Home'
-import { getIsLoggedIn } from '../utils/Auth'
-import { FoldersContext } from '../utils/FolderContext'
-import CardHome from '../components/CardHome';
+
 import API from '../utils/API'
-import { Wrapper, Score, CardCenter, Cardcss } from '../style/Folder';
+import { Wrapper, Score, CardCenter, Cardcss, Overlay, ContainerTile, Text } from '../style/Folder';
 import img from '../img/bg_grey.png'
 import ProjectName from '../components/ProjectName';
 import { ProjectsContent } from '../style/Projects';
@@ -21,6 +14,8 @@ import link from '../img/button_links.png'
 import photo from '../img/button_photos.png'
 import ProjectNav from '../components/projects/ProjectNav';
 import logo from '../img/logo_header.png'
+import folder from '../img/button_folders.png'
+import './styles/Home.css'
 
 const Folder = () => {
     const history = useHistory()
@@ -66,32 +61,47 @@ const Folder = () => {
           <div className="columns is-mobile is-centered">
           <div className="column is-half">
             <Cardcss className="card">
-              <div className="card-content">
+              {/* <div className="card-content"> */}
                 <CardCenter className="hero-body has-text-centered">
                   <div className="Card">
-                    <h4 className="title">BzB</h4>
+                    {/* <h4 className="title">BzB</h4> */}
                     <div className='columns is-mobile'>
-                      <ContainerTile>
-                        <div className='column'>
-                          <Link to={`/tasks/${id}`}>
-                            <img src={task} 
+                    <ContainerTile className='container'>
+                    <div className='column'>
+                          <Link to={`/projects`}>
+                            <img src={folder} 
                             className='animate__animated animate__flip'
-                            width="232px" alt='task'>
+                            width="232px" alt='folder'>
                             </img>
-                            <Overlay className='overlay has-text-info'>
-                              <Text className='text'>Tasks</Text>
+                            <Overlay className='overlay has-text-info' color='lightgrey'>
+                              <Text className='text'>Projects</Text>
+                            </Overlay>
+                          </Link>
+                        </div>
+                    </ContainerTile>
+                      
+                      <ContainerTile className='container'>
+                        <div className='column'>
+                          <Link to={'#'}>
+                            <img src={bee} 
+                            className='animate__animated animate__flip'
+                            width="232px" alt='Bzb'>
+                            </img>
+                            <Overlay className='overlay has-text-info' color='gold'>
+                              <Text className='text'>BzB</Text>
                             </Overlay>
                           </Link>
                         </div>
                       </ContainerTile>
-                      <ContainerTile>
+
+                      <ContainerTile className='container'>
                       <div className='column'>
                           <Link to={`/notes/${id}`}>
                             <img src={note} 
                             className='animate__animated animate__flip'
                             width="232px" alt='note'>
                             </img>
-                            <Overlay className='overlay has-text-info'>
+                            <Overlay className='overlay has-text-info' color='#A78EE6'>
                               <Text className='text'>Notes</Text>
                             </Overlay>
                           </Link>
@@ -99,36 +109,49 @@ const Folder = () => {
                       </ContainerTile>
                     </div>
                     <div className='columns is-mobile'>
-                    <ContainerTile>
+                    <ContainerTile className='container'>
                     <div className='column'>
                           <Link to={`/links/${id}`}>
                             <img src={link} 
                             className='animate__animated animate__flip'
                             width="232px" alt='link'>
                             </img>
-                            <Overlay className='overlay has-text-info'>
+                            <Overlay className='overlay has-text-info' color='#ff4c50'>
                               <Text className='text'>Links</Text>
                             </Overlay>
                           </Link>
                         </div>
                     </ContainerTile>
-                    <ContainerTile>
+                    <ContainerTile className='container'>
                     <div className='column'>
                           <Link to={`/images/${id}`}>
                             <img src={photo} 
                             className='animate__animated animate__flip'
                             width="232px" alt='image'>
                             </img>
-                            <Overlay className='overlay has-text-info'>
+                            <Overlay className='overlay has-text-info' color='#ff7e4c'>
                               <Text className='text'>Images</Text>
                             </Overlay>
                           </Link>
                         </div>
                     </ContainerTile>
+                    <ContainerTile className='container'>
+                        <div className='column'>
+                          <Link to={`/tasks/${id}`}>
+                            <img src={task} 
+                            className='animate__animated animate__flip'
+                            width="232px" alt='task'>
+                            </img>
+                            <Overlay className='overlay has-text-info' color='#58afff'>
+                              <Text className='text'>Tasks</Text>
+                            </Overlay>
+                          </Link>
+                        </div>
+                      </ContainerTile>
                     </div>
                   </div>
                 </CardCenter>
-              </div>
+              {/* </div> */}
             </Cardcss>
           </div>
         </div>
