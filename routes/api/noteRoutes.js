@@ -26,7 +26,7 @@ router.put("/:_id", (req, res) => {
   db.Note
     .findOneAndUpdate(noteId, req.body, {new: true})
     .then(note => {
-      console.log(note);
+      // console.log(note);
       res.json(note);
     })
     .catch(err => {

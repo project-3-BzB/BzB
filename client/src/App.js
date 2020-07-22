@@ -15,6 +15,7 @@ import { FoldersProvider } from './utils/FolderContext'
 import Folders from './pages/Folders'
 import Folder from './pages/Folder'
 import Projects from './pages/Projects'
+import Journals from './pages/Journals'
 
 function App() {
 
@@ -55,9 +56,10 @@ function App() {
                 <Folder />
               </GuardedRoute>
               {/* <GuardedRoute exact path={['/Journals']} >
+              <GuardedRoute exact path={['/Journals']} >
                 <Journals />
               </GuardedRoute>
-              <GuardedRoute exact path={['/Links']} >
+              {/* <GuardedRoute exact path={['/Links']} >
                 <Links />
               </GuardedRoute>
               <GuardedRoute exact path={['/Photos']} >

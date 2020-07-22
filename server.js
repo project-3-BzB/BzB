@@ -189,6 +189,104 @@ const axios = require("axios");
 //     // console.log(err)
 // });
 
+//TASKS----------------------------------------------------------------
+// ---Create Task---
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_task", {
+//     title: "Test",
+//     content: "Hello world",
+//     year: "2020",
+//     month: "1",
+//     day: "1",
+//     hour: "14",
+//     minute: "30",
+//     isComplete: false
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Get Task---
+// axios.get("http://localhost:5000/api/task/[task._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Update Task---
+// axios.put("http://localhost:5000/api/task/[task._id]", {
+//     title: "Update",
+//     content: "Testing",
+//     year: "2025",
+//     month: "5",
+//     day: "30",
+//     hour: "12",
+//     minute: "30",
+//     isComplete: true
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Delete Task---
+// axios.delete("http://localhost:5000/api/task/delete/[folder._id]/[task._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//IMAGES----------------------------------------------------------------
+// ---Create Image---
+// axios.post("http://localhost:5000/api/folder/[folder._id]/new_image", {
+//     title: "Test",
+//     content: "Hello world"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Get Image---
+// axios.get("http://localhost:5000/api/image/[image._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Update Image---
+// axios.put("http://localhost:5000/api/image/[image._id]", {
+//     title: "Update",
+//     content: "Testing"
+// })
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
+//---Delete Image---
+// axios.delete("http://localhost:5000/api/image/delete/[folder._id]/[image._id]")
+// .then(function(res) {
+//     // console.log(res)
+// })
+// .catch(function(err) {
+//     // console.log(err)
+// });
+
 //LINKS-----------------------------------------------------------
 // ---Create Link---
 // axios.post("http://localhost:5000/api/folder/[folder._id]/new_link", {
@@ -203,7 +301,7 @@ const axios = require("axios");
 // });
 
 //---Get Link---
-// axios.get("http://localhost:5000/api/note/[link._id]")
+// axios.get("http://localhost:5000/api/link/[link._id]")
 // .then(function(res) {
 //     // console.log(res)
 // })
@@ -212,7 +310,7 @@ const axios = require("axios");
 // });
 
 //---Update Link---
-// axios.put("http://localhost:5000/api/note/[link._id]", {
+// axios.put("http://localhost:5000/api/link/[link._id]", {
 //     title: "Update",
 //     content: "Testing"
 // })
@@ -224,7 +322,7 @@ const axios = require("axios");
 // });
 
 //---Delete Link---
-// axios.delete("http://localhost:5000/api/note/delete/[folder._id]/[link._id]")
+// axios.delete("http://localhost:5000/api/link/delete/[folder._id]/[link._id]")
 // .then(function(res) {
 //     // console.log(res)
 // })
@@ -232,7 +330,7 @@ const axios = require("axios");
 //     // console.log(err)
 // });
 
-//MOCK USERS------------------------------------------------------
+//OTHER MOCK USERS------------------------------------------------------
 //---USER 2 Signup---
 // axios.post("http://localhost:5000/api/user/signup", {
 //     email: "123@456.com",

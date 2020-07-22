@@ -1,5 +1,5 @@
-.wrapperBlue {
-  background: url(../../img/bg_blue.png);
+.wrapperPurple {
+  background: url(../../img/bg_purple.png);
   width: 100%;
   height: 100%;
   top: 0;
@@ -27,7 +27,7 @@
   justify-content: center;
 } */
 
-.task {
+.journal {
   margin-top: 16px;
   margin-bottom: 16px;
 }

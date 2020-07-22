@@ -1,16 +1,16 @@
 import React from 'react'
-import './styles/Tasks.css'
+import './styles/Journals.css'
 import NavTiles from '../components/NavTiles';
 import FormHome from '../components/FormHome';
 import TaskFolder from '../components/TaskFolder';
 import {TileProvider} from '../utils/TileContext';
 
 
-function Tasks() {
+function Journals() {
 
   return (
     <div>
-      <div className="wrapperBlue">
+      <div className="wrapperPurple">
 
         <div className="tile is-ancestor">
           <div className="tile is-parent is-vertical is-12">
@@ -39,4 +39,4 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default Journals;
