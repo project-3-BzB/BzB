@@ -90,17 +90,25 @@ const Notes = props => {
         {/* <ProjectsContent> */}
           {/* <div className='columns'> */}
             <div className='column is-one-third'>
-              <input className="input mb-3" type="text" placeholder="Note Title" name='title' onChange={handleChange}/>
-              <textarea className="textarea" placeholder="Hi! I'm your newest, FUNNEST note ;p" name='content'
-              onChange={handleChange} ></textarea>
+              <input className="input mb-3"
+              type="text" placeholder="Note Title" 
+              name='title' onChange={handleChange}
+              />
+              <textarea className="textarea" 
+              placeholder="Hi! I'm your newest, FUNNEST note ;p" name='content'
+              onChange={handleChange}>
+              </textarea>
               <button className='button' onClick={handleCreate}>Create Note</button>
             </div>
+
+            {/*SAVED NOTES LIST */}
 
             <div className='column is-two-thirds'>
               {contents.notesList ? contents.notesList.map(note=> (
                   <div className='notification animate__animated animate__fadeInUpBig'>
-                  <button name={note._id} className='delete'
-                  onClick={()=> {handleDelete(note._id)}}/>
+                    <button name={note._id} className='delete'
+                      onClick={()=> {handleDelete(note._id)}}
+                      />
                   <article className='media'>
                     <div className='media-content'>
                       <div className='content'>
@@ -132,37 +140,3 @@ const Notes = props => {
 
 export default Notes
 
-  // <div className="tile is-ancestor">
-  //         <div className="tile is-parent is-vertical is-12">
-  //           <TileProvider>
-  //             <NavTiles />
-  //           </TileProvider>
-  //         </div>
-  //       </div>
-
-
-
-  // <>
-  // {notes ? 
-  
-  //   notes.map(note => (
-  //     <div className='notification animate__animated animate__fadeInUpBig'>
-  //     <button name={note.id} className='delete' />
-  //     <article className='media'>
-  //       <div className='media-left'>
-  //         <Icon className='fas fa-folder fa-3x'/>
-  //       </div>
-  //       <div className='media-content'>
-  //         <div className='content'>
-  //           {/* <Link to={`folder/${props.link}`} style={{textDecoration: 'none'}}> */}
-  //             <h4 className='title is-5'>{note.title}</h4>
-  //           {/* </Link> */}
-  //           <p className='subtitle is-6'>Created {note.date}</p>
-  //         </div>
-  //       </div>
-  //     </article>
-  //   </div>
-  //   )) : <h1>'No Notes'</h1>
-  
-  // }
-  // </>

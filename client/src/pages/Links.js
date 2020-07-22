@@ -1,43 +1,124 @@
-import React from 'react'
-import './styles/Links.css'
-import NavTiles from '../components/NavTiles';
-import FormHome from '../components/FormHome';
-import ProjectName from '../components/ProjectName';
-import LinksFolder from '../components/LinksFolder';
-import {TileProvider} from '../utils/TileContext';
+import React, { useContext, useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import API from '../utils/API'
+import { NoteContext, NoteProvider } from '../utils/NoteContext'
+import Wrapper from '../style/Wrapper'
+import img from '../img/bg_red.png'
+import bee from '../img/icon_bee.png'
+import note from '../img/button_journals.png'
+import task from '../img/button_tasks.png'
+import link from '../img/button_links.png'
+import photo from '../img/button_photos.png'
+import ProjectNav from '../components/projects/ProjectNav'
+import { ProjectsContent } from '../style/Projects'
+import logo from '../img/logo_header.png'
+import { Icon } from '../style/Projects'
+import { getIsLoggedIn } from '../utils/Auth'
+
+const Links = props => {
+  // const [links, setlinks] = useContext(NoteContext)
+  const [contents, setContents] = useState({})
+  const [field, setField] = useState({})
+  // const userId = getIsLoggedIn()
+  // const userId = getIsLoggedIn()
+
+  // const {id} = useParams()
+  // console.log(id)
+
+  useEffect(() => {
+    loadContents()
+  }, [])
 
 
-function Links() {
+  function loadContents() {
+    API.get(`/api/folder/5f180fcb6b3aea5410a21577`).then(res => {
+      console.log(res.data)
+      setContents(res.data)
+    })
+  }
+
+  function createLink() {
+    API.post('/api/folder/5f180fcb6b3aea5410a21577/new_link', {
+      title: field.title,
+      content: field.content
+    }).then(res=> {
+      console.log(res)
+      loadContents()
+    })
+  }
+
+
+  function deleteLink(id) {
+    API.delete(`/api/link/delete/5f180fcb6b3aea5410a21577/${id}`)
+    .then(res => {
+      console.log(res)
+      loadContents()
+    })
+  }
+
+
+  const handleDelete = id => {
+    deleteLink(id)
+  }
+
+  const handleChange = e => {
+    const {name, value} = e.target
+    setField({...field, [name]: value})
+  }
+
+  const handleCreate = e => {
+    e.preventDefault()
+    createLink()
+  }
+
 
   return (
-    <div>
-      <div className="wrapperRed">
+    <>
+    <ProjectNav img={logo} />
+      <Wrapper img={img}>
+        {/* <ProjectsContent> */}
+          {/* <div className='columns'> */}
+            <div className='column is-one-third'>
+              <input className="input mb-3"
+              type="text" placeholder="NSFW" 
+              name='title' onChange={handleChange}
+              />
+              <input className="input" 
+              placeholder='big sexy link' name='content'
+              onChange={handleChange}>
+              </input>
+              <button className='button' onClick={handleCreate}>Add Link</button>
+            </div>
 
-        <div className="tile is-ancestor">
-          <div className="tile is-parent is-vertical is-12">
-            <TileProvider>
-              <NavTiles />
-            </TileProvider>
-          </div>
-        </div>
+            {/*SAVED links LIST */}
 
-        {/* <FormHome /> */}
-        <ProjectName />
-
-        <div className="columns is-ancestor is-mobile is-centered">
-          <div className="column is-two-thirds ">
-            <LinksFolder />
-            <LinksFolder />
-            <LinksFolder />
-            <LinksFolder />
-            <LinksFolder />
-            <LinksFolder />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
+            <div className='column is-two-thirds'>
+              {contents.linksList ? contents.linksList.map(link=> (
+                  <div className='notification animate__animated animate__fadeInUpBig'>
+                    <button name={link._id} className='delete'
+                      onClick={()=> {handleDelete(link._id)}}
+                      />
+                  <article className='media'>
+                    <div className='media-content'>
+                      <div className='content'>
+                        <h4 className='title is-size-5 is-capitalized'>{link.title}</h4>
+                        <a href={link.content} 
+                          target='_blank' rel='noopener noreferrer'>
+                          {link.content}
+                        </a>
+                        <p className='subtitle is-6'>Created {link.createdAt} </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              )) : <h1>'Loading'</h1>}
+            </div>
+          {/* </div> */}
+        {/* </ProjectsContent> */}
+      </Wrapper>
+    </>
+  )
 }
 
-export default Links;
+export default Links
+

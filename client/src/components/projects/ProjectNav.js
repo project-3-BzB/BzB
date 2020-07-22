@@ -32,7 +32,7 @@ const ProjectNav = props => {
         <div className='navbar-item'>
           <input className='input is-rounded' 
             type='text' 
-            placeholder='Search Projects'
+            placeholder='Search'
             onChange={props.onChange}
           />
         </div>
