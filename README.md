@@ -1,6 +1,10 @@
 # BzB
 
 ## Description:
+
+
+## User Story
+
 The BzB app is for any user who would like an easy place to leave self notes, checklist, searched links, photos or project tasks all in one place.
 
 ## Table of Contents:
@@ -55,3 +59,5 @@ SOFTWARE.
 ## Contributing:
 We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community. 
 
+---
+© 2020 BzB. All Rights Reserved.
