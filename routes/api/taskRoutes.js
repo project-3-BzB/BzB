@@ -10,8 +10,18 @@ router.get("/:_id", (req, res) => {
   db.Task
     .findById(taskId)
     .then(task => {
-      // console.log(task)
-      res.json(task);
+      let formattedTask = {
+        createdAt: task.createdAt,
+        updatedAt: task.updatedAt,
+        isComplete: task.isComplete,
+        _id: task._id,
+        title: task.title,
+        content: task.content,
+        dueDate: task.dueDate.toLocaleString(),
+        __v: task.__v
+      };
+      // console.log(formattedTask)
+      res.json(formattedTask);
     })
     .catch(err => {
       console.log("GET TASK ERROR: ", err);
